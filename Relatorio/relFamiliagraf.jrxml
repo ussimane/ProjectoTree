@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="80"/>
+	<parameter name="img" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="localidade" class="java.lang.String">
+		<fieldDescription><![CDATA[localidade]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Integer">
+		<fieldDescription><![CDATA[total]]></fieldDescription>
+	</field>
+	<field name="tsim" class="java.lang.Integer">
+		<fieldDescription><![CDATA[tsim]]></fieldDescription>
+	</field>
+	<field name="tnao" class="java.lang.Integer">
+		<fieldDescription><![CDATA[tnao]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="94" splitType="Stretch">
+			<staticText>
+				<reportElement x="242" y="74" width="323" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grafico de Formandos que são chefe de familia]]></text>
+			</staticText>
+			<image>
+				<reportElement x="104" y="7" width="446" height="46"/>
+				<imageExpression><![CDATA[$P{img}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<summary>
+		<band height="269" splitType="Stretch">
+			<barChart>
+				<chart>
+					<reportElement x="0" y="14" width="802" height="242"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["Nr. Sim"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{localidade}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{tsim}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["Nr. Nao"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{localidade}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{tnao}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot labelRotation="30.0"/>
+					<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+				</barPlot>
+			</barChart>
+		</band>
+	</summary>
+</jasperReport>

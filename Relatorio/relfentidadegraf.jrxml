@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="74"/>
+	<parameter name="img" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="coreh" class="java.lang.Integer">
+		<fieldDescription><![CDATA[coreh]]></fieldDescription>
+	</field>
+	<field name="corem" class="java.lang.Integer">
+		<fieldDescription><![CDATA[corem]]></fieldDescription>
+	</field>
+	<field name="coret" class="java.lang.Integer">
+		<fieldDescription><![CDATA[coret]]></fieldDescription>
+	</field>
+	<field name="distrito" class="java.lang.String">
+		<fieldDescription><![CDATA[distrito]]></fieldDescription>
+	</field>
+	<field name="iabilh" class="java.lang.Integer">
+		<fieldDescription><![CDATA[iabilh]]></fieldDescription>
+	</field>
+	<field name="iabilm" class="java.lang.Integer">
+		<fieldDescription><![CDATA[iabilm]]></fieldDescription>
+	</field>
+	<field name="iabilt" class="java.lang.Integer">
+		<fieldDescription><![CDATA[iabilt]]></fieldDescription>
+	</field>
+	<field name="idpph" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idpph]]></fieldDescription>
+	</field>
+	<field name="idppm" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idppm]]></fieldDescription>
+	</field>
+	<field name="idppt" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idppt]]></fieldDescription>
+	</field>
+	<field name="inefph" class="java.lang.Integer">
+		<fieldDescription><![CDATA[inefph]]></fieldDescription>
+	</field>
+	<field name="inefpm" class="java.lang.Integer">
+		<fieldDescription><![CDATA[inefpm]]></fieldDescription>
+	</field>
+	<field name="inefpt" class="java.lang.Integer">
+		<fieldDescription><![CDATA[inefpt]]></fieldDescription>
+	</field>
+	<field name="localidade" class="java.lang.String">
+		<fieldDescription><![CDATA[localidade]]></fieldDescription>
+	</field>
+	<field name="outro" class="java.lang.Integer">
+		<fieldDescription><![CDATA[outro]]></fieldDescription>
+	</field>
+	<field name="posto" class="java.lang.String">
+		<fieldDescription><![CDATA[posto]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<staticText>
+				<reportElement x="239" y="70" width="290" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gráfico de formadores por Entidade Formadora]]></text>
+			</staticText>
+			<image>
+				<reportElement x="109" y="0" width="446" height="46"/>
+				<imageExpression><![CDATA[$P{img}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<summary>
+		<band height="313" splitType="Stretch">
+			<barChart>
+				<chart>
+					<reportElement x="0" y="25" width="802" height="256"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["INEFP"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{localidade}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{inefpt}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["IABIL"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{localidade}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{iabilt}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["CORE"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{localidade}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{coret}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["IDPP"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{localidade}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{idppt}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["Outro"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{localidade}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{outro}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot labelRotation="30.0"/>
+					<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+				</barPlot>
+			</barChart>
+		</band>
+	</summary>
+</jasperReport>

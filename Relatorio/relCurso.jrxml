@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="45"/>
+	<parameter name="img" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="distrito" class="java.lang.String"/>
+	<parameter name="comunidade" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="totalformados" class="java.lang.Integer">
+		<fieldDescription><![CDATA[totalformados]]></fieldDescription>
+	</field>
+	<field name="totaldesistente" class="java.lang.Integer">
+		<fieldDescription><![CDATA[totaldesistente]]></fieldDescription>
+	</field>
+	<field name="taxaaprovacao" class="java.lang.Float">
+		<fieldDescription><![CDATA[taxaaprovacao]]></fieldDescription>
+	</field>
+	<field name="orcamentohonorario" class="java.lang.Float">
+		<fieldDescription><![CDATA[orcamentohonorario]]></fieldDescription>
+	</field>
+	<field name="matriculadoH" class="java.lang.Integer">
+		<fieldDescription><![CDATA[matriculadoH]]></fieldDescription>
+	</field>
+	<field name="matriculadoM" class="java.lang.Integer">
+		<fieldDescription><![CDATA[matriculadoM]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="datainicio" class="java.util.Date">
+		<fieldDescription><![CDATA[datainicio]]></fieldDescription>
+	</field>
+	<field name="totalmatriculado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[totalmatriculado]]></fieldDescription>
+	</field>
+	<field name="reprovadoM" class="java.lang.Integer">
+		<fieldDescription><![CDATA[reprovadoM]]></fieldDescription>
+	</field>
+	<field name="taxadesistencia" class="java.lang.Float">
+		<fieldDescription><![CDATA[taxadesistencia]]></fieldDescription>
+	</field>
+	<field name="auxiliar" class="java.lang.String">
+		<fieldDescription><![CDATA[auxiliar]]></fieldDescription>
+	</field>
+	<field name="totalreprovados" class="java.lang.Integer">
+		<fieldDescription><![CDATA[totalreprovados]]></fieldDescription>
+	</field>
+	<field name="desistenteH" class="java.lang.Integer">
+		<fieldDescription><![CDATA[desistenteH]]></fieldDescription>
+	</field>
+	<field name="reprovadoH" class="java.lang.Integer">
+		<fieldDescription><![CDATA[reprovadoH]]></fieldDescription>
+	</field>
+	<field name="formadosM" class="java.lang.Integer">
+		<fieldDescription><![CDATA[formadosM]]></fieldDescription>
+	</field>
+	<field name="orcamentoequipamento" class="java.lang.Float">
+		<fieldDescription><![CDATA[orcamentoequipamento]]></fieldDescription>
+	</field>
+	<field name="orcamentoconsumiveis" class="java.lang.Float">
+		<fieldDescription><![CDATA[orcamentoconsumiveis]]></fieldDescription>
+	</field>
+	<field name="datafim" class="java.util.Date">
+		<fieldDescription><![CDATA[datafim]]></fieldDescription>
+	</field>
+	<field name="orcamentoepi" class="java.lang.Float">
+		<fieldDescription><![CDATA[orcamentoepi]]></fieldDescription>
+	</field>
+	<field name="idcursoformacao" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idcursoformacao]]></fieldDescription>
+	</field>
+	<field name="desistenteM" class="java.lang.Integer">
+		<fieldDescription><![CDATA[desistenteM]]></fieldDescription>
+	</field>
+	<field name="codcurso" class="java.lang.String">
+		<fieldDescription><![CDATA[codcurso]]></fieldDescription>
+	</field>
+	<field name="taxareaprovacao" class="java.lang.Float">
+		<fieldDescription><![CDATA[taxareaprovacao]]></fieldDescription>
+	</field>
+	<field name="formadosH" class="java.lang.Integer">
+		<fieldDescription><![CDATA[formadosH]]></fieldDescription>
+	</field>
+	<field name="taxafeminizacao" class="java.lang.Float">
+		<fieldDescription><![CDATA[taxafeminizacao]]></fieldDescription>
+	</field>
+	<field name="cargahoraria" class="java.lang.String">
+		<fieldDescription><![CDATA[cargahoraria]]></fieldDescription>
+	</field>
+	<field name="curso" class="java.lang.String">
+		<fieldDescription><![CDATA[idcurso.curso]]></fieldDescription>
+	</field>
+	<variable name="variable1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{matriculadoH}]]></variableExpression>
+	</variable>
+	<variable name="variable2" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{matriculadoM}]]></variableExpression>
+	</variable>
+	<variable name="variable3" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalmatriculado}]]></variableExpression>
+	</variable>
+	<variable name="variable4" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{formadosH}]]></variableExpression>
+	</variable>
+	<variable name="variable5" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{formadosM}]]></variableExpression>
+	</variable>
+	<variable name="variable6" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalformados}]]></variableExpression>
+	</variable>
+	<variable name="variable7" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{reprovadoH}]]></variableExpression>
+	</variable>
+	<variable name="variable8" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{reprovadoM}]]></variableExpression>
+	</variable>
+	<variable name="variable9" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalreprovados}]]></variableExpression>
+	</variable>
+	<variable name="variable10" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{desistenteH}]]></variableExpression>
+	</variable>
+	<variable name="variable11" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{desistenteM}]]></variableExpression>
+	</variable>
+	<variable name="variable12" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{totaldesistente}]]></variableExpression>
+	</variable>
+	<variable name="variable13" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{orcamentoconsumiveis}+$F{orcamentoepi}+$F{orcamentoequipamento}+$F{orcamentohonorario}]]></variableExpression>
+	</variable>
+	<variable name="variable14" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$V{variable13}]]></variableExpression>
+	</variable>
+	<variable name="variable15" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{orcamentoconsumiveis}]]></variableExpression>
+	</variable>
+	<variable name="variable16" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{orcamentoepi}]]></variableExpression>
+	</variable>
+	<variable name="variable17" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{orcamentoequipamento}]]></variableExpression>
+	</variable>
+	<variable name="variable18" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{orcamentohonorario}]]></variableExpression>
+	</variable>
+	<group name="foot">
+		<groupFooter>
+			<band height="20">
+				<textField>
+					<reportElement x="276" y="0" width="23" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{variable4}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="376" y="0" width="26" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{variable8}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="450" y="0" width="23" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{variable11}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="348" y="0" width="28" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{variable7}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="198" y="0" width="28" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{variable1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="325" y="0" width="23" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{variable6}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="249" y="0" width="27" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{variable3}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="428" y="0" width="22" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{variable10}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="748" y="0" width="54" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{variable14}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="299" y="0" width="25" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{variable5}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="158" y="0" width="40" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="226" y="0" width="22" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{variable2}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="473" y="0" width="26" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{variable12}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="402" y="0" width="26" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{variable9}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="499" y="0" width="65" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{variable15}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="565" y="0" width="65" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{variable16}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="630" y="0" width="65" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{variable17}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="695" y="0" width="53" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{variable18}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="108" splitType="Stretch">
+			<staticText>
+				<reportElement x="137" y="88" width="350" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatorio de cursos por comunidade]]></text>
+			</staticText>
+			<image>
+				<reportElement x="109" y="15" width="481" height="56"/>
+				<imageExpression><![CDATA[$P{img}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="23" y="10" width="41" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Distrito:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="176" y="10" width="72" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[  Comunidade:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="64" y="10" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{distrito}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="248" y="10" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{comunidade}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="138" y="0" width="60" height="41" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="198" y="0" width="77" height="21" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Matriculados]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="275" y="0" width="73" height="21" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Aprovados]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="348" y="0" width="80" height="21" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reprovados]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="428" y="0" width="71" height="21" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Desistentes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="138" height="41" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="198" y="21" width="28" height="20" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[H]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="226" y="21" width="23" height="20" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[M]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="249" y="21" width="26" height="20" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[T]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="275" y="21" width="24" height="20" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[H]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="299" y="21" width="26" height="20" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[M]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="325" y="21" width="23" height="20" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[T]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="348" y="21" width="28" height="20" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[H]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="376" y="21" width="26" height="20" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[M]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="402" y="21" width="26" height="20" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[T]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="428" y="21" width="22" height="20" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[H]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="450" y="21" width="23" height="20" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[M]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="473" y="21" width="26" height="20" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[T]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="499" y="0" width="303" height="21" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Orcamentos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="748" y="21" width="54" height="20" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Orc Toatal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="499" y="21" width="66" height="20" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Consumiveis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="565" y="21" width="65" height="20" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[EPI's]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="630" y="21" width="66" height="20" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Equipamentos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="696" y="21" width="52" height="20" backcolor="#FF9999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Honorarios]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="138" y="0" width="60" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{codcurso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="138" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{curso}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="226" y="0" width="22" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{matriculadoM}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="249" y="0" width="27" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{totalmatriculado}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="275" y="0" width="24" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{formadosH}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="299" y="0" width="25" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{formadosM}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="325" y="0" width="23" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{totalformados}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="198" y="0" width="28" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{matriculadoH}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="348" y="0" width="28" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{reprovadoH}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="376" y="0" width="26" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{reprovadoM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="402" y="0" width="25" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{totalreprovados}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="748" y="0" width="54" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{variable13}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="473" y="0" width="26" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{totaldesistente}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="450" y="0" width="23" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{desistenteM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="427" y="0" width="23" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{desistenteH}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="499" y="0" width="66" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{orcamentoconsumiveis}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="564" y="0" width="66" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{orcamentoepi}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="630" y="0" width="66" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{orcamentoequipamento}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="696" y="0" width="52" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{orcamentohonorario}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

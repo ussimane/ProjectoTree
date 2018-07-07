@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="1190" pageHeight="842" orientation="Landscape" columnWidth="1150" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="313"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="img" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="tipodificiencia" class="java.lang.String">
+		<fieldDescription><![CDATA[tipodificiencia]]></fieldDescription>
+	</field>
+	<field name="sexo" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[sexo]]></fieldDescription>
+	</field>
+	<field name="rendimentomedio" class="java.lang.Integer">
+		<fieldDescription><![CDATA[rendimentomedio]]></fieldDescription>
+	</field>
+	<field name="outrahabilidades" class="java.lang.String">
+		<fieldDescription><![CDATA[outrahabilidades]]></fieldDescription>
+	</field>
+	<field name="nrfilhos" class="java.lang.Integer">
+		<fieldDescription><![CDATA[nrfilhos]]></fieldDescription>
+	</field>
+	<field name="nragregado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[nragregado]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	</field>
+	<field name="idformando" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idformando]]></fieldDescription>
+	</field>
+	<field name="idade" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idade]]></fieldDescription>
+	</field>
+	<field name="filho" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[filho]]></fieldDescription>
+	</field>
+	<field name="empregador" class="java.lang.String">
+		<fieldDescription><![CDATA[empregador]]></fieldDescription>
+	</field>
+	<field name="empregado" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[empregado]]></fieldDescription>
+	</field>
+	<field name="diplomaprof" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[diplomaprof]]></fieldDescription>
+	</field>
+	<field name="diplomainefp" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[diplomainefp]]></fieldDescription>
+	</field>
+	<field name="dificiente" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[dificiente]]></fieldDescription>
+	</field>
+	<field name="curso" class="java.lang.String">
+		<fieldDescription><![CDATA[curso]]></fieldDescription>
+	</field>
+	<field name="contacto" class="java.lang.Integer">
+		<fieldDescription><![CDATA[contacto]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="chefefamilia" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[chefefamilia]]></fieldDescription>
+	</field>
+	<field name="casapropria" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[casapropria]]></fieldDescription>
+	</field>
+	<field name="areaactividade" class="java.lang.String">
+		<fieldDescription><![CDATA[areaactividade]]></fieldDescription>
+	</field>
+	<field name="areadeformacao" class="Modelo.Areadeformacao">
+		<fieldDescription><![CDATA[areadeformacao]]></fieldDescription>
+	</field>
+	<field name="actividadeprofissional" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[actividadeprofissional]]></fieldDescription>
+	</field>
+	<field name="actividadecontapropria" class="Modelo.Actividadecontapropria">
+		<fieldDescription><![CDATA[actividadecontapropria]]></fieldDescription>
+	</field>
+	<field name="idnivelprof" class="Modelo.Nivelprofissional">
+		<fieldDescription><![CDATA[idnivelprof]]></fieldDescription>
+	</field>
+	<field name="idnivelhabilitacao" class="Modelo.Nivelhabilitacao">
+		<fieldDescription><![CDATA[idnivelhabilitacao]]></fieldDescription>
+	</field>
+	<field name="idlocalidade" class="Modelo.Localidade">
+		<fieldDescription><![CDATA[idlocalidade]]></fieldDescription>
+	</field>
+	<field name="idestadocivil" class="Modelo.Estadocivil">
+		<fieldDescription><![CDATA[idestadocivil]]></fieldDescription>
+	</field>
+	<field name="idcurso" class="Modelo.Curso">
+		<fieldDescription><![CDATA[idcurso]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="86" splitType="Stretch">
+			<image>
+				<reportElement x="220" y="23" width="825" height="57"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{img}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="17" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="83" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="14" y="63" width="49" height="20" backcolor="#FF9999"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nr.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="63" y="63" width="119" height="20" backcolor="#FF9999"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome Completo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="182" y="63" width="68" height="20" backcolor="#FF9999"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sexo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="300" y="63" width="55" height="20" backcolor="#FF9999"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[E.Civil]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="251" y="63" width="49" height="20" backcolor="#FF9999"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Idade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="405" y="63" width="51" height="20" backcolor="#FF9999"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nr.Filhos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="355" y="63" width="50" height="20" backcolor="#FF9999"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nr.Agreg]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="456" y="63" width="66" height="20" backcolor="#FF9999"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Deficiencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="522" y="63" width="72" height="20" backcolor="#FF9999"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Comunidade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="870" y="63" width="65" height="20" backcolor="#FF9999"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Comic Sans MS" isBold="true"/>
+				</textElement>
+				<text><![CDATA[F.P Opcao1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="594" y="63" width="60" height="20" backcolor="#FF9999"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contacto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="118" y="10" width="671" height="20"/>
+				<textElement>
+					<font fontName="Comic Sans MS" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Projecto Qualificações para a Promoção do Emprego e da Produtividade em Países de Baixo Rendimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="367" y="30" width="143" height="20"/>
+				<textElement>
+					<font fontName="Comic Sans MS" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lista de Beneficiários]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="654" y="63" width="65" height="20" backcolor="#FF9999"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[N.Habilitacao]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="719" y="63" width="78" height="20" backcolor="#FF9999"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Comic Sans MS" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Area.Activ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="797" y="63" width="73" height="20" backcolor="#FF9999"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Comic Sans MS" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N.Empregador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="935" y="63" width="64" height="20" backcolor="#FF9999"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Comic Sans MS" isBold="true"/>
+				</textElement>
+				<text><![CDATA[F.P Opcao2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="999" y="63" width="76" height="20" backcolor="#FF9999"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Comic Sans MS" isBold="true"/>
+				</textElement>
+				<text><![CDATA[F.P Opcao3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="1075" y="63" width="59" height="20" backcolor="#FF9999"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Comic Sans MS" isBold="true"/>
+				</textElement>
+				<text><![CDATA[R.Medio]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="14" y="0" width="49" height="20" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{idformando}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="300" y="0" width="55" height="20" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[""+$F{idestadocivil}.getEstado()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="63" y="0" width="119" height="20" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="183" y="0" width="68" height="20">
+					<printWhenExpression><![CDATA[$F{sexo}]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Masculino]]></text>
+			</staticText>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="251" y="0" width="49" height="20" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{idade}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="405" y="0" width="51" height="20" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{nrfilhos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="355" y="0" width="50" height="20" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{nragregado}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="456" y="0" width="66" height="20" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tipodificiencia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="522" y="0" width="72" height="20" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[""+$F{idlocalidade}.getLocalidade()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="870" y="0" width="65" height="20" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[""+$F{idcurso}.getCurso()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="594" y="0" width="60" height="20" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{contacto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="654" y="0" width="65" height="20" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[""+$F{idnivelhabilitacao}.getNivelhabilitacao()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="719" y="0" width="78" height="20" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{areaactividade}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="797" y="0" width="73" height="20" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{empregador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="935" y="0" width="64" height="20" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[""+$F{areadeformacao}.getIdcurso2()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="999" y="0" width="76" height="20" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[""+$F{areadeformacao}.getIdcurso3()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="1075" y="0" width="59" height="20"/>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{rendimentomedio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="183" y="0" width="68" height="20" isPrintWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$F{sexo}.equals( false )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Feminino]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

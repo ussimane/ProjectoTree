@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="62"/>
+	<parameter name="img" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="zeroum" class="java.lang.Integer">
+		<fieldDescription><![CDATA[zeroum]]></fieldDescription>
+	</field>
+	<field name="umcinco" class="java.lang.Integer">
+		<fieldDescription><![CDATA[umcinco]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Integer">
+		<fieldDescription><![CDATA[total]]></fieldDescription>
+	</field>
+	<field name="posto" class="java.lang.String">
+		<fieldDescription><![CDATA[posto]]></fieldDescription>
+	</field>
+	<field name="maiscinco" class="java.lang.Integer">
+		<fieldDescription><![CDATA[maiscinco]]></fieldDescription>
+	</field>
+	<field name="localidade" class="java.lang.String">
+		<fieldDescription><![CDATA[localidade]]></fieldDescription>
+	</field>
+	<field name="distrito" class="java.lang.String">
+		<fieldDescription><![CDATA[distrito]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<staticText>
+				<reportElement x="273" y="70" width="253" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grafico de formandos por escalao]]></text>
+			</staticText>
+			<image>
+				<reportElement x="109" y="0" width="446" height="46"/>
+				<imageExpression><![CDATA[$P{img}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<summary>
+		<band height="292" splitType="Stretch">
+			<barChart>
+				<chart>
+					<reportElement x="0" y="25" width="802" height="248"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["0 - 1"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{localidade}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{zeroum}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["1 - 5"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{localidade}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{umcinco}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["+5"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{localidade}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{maiscinco}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot labelRotation="30.0"/>
+					<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+				</barPlot>
+			</barChart>
+		</band>
+	</summary>
+</jasperReport>

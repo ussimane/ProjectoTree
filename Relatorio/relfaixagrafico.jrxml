@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="69"/>
+	<parameter name="img" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="desanovem" class="java.lang.Integer">
+		<fieldDescription><![CDATA[desanovem]]></fieldDescription>
+	</field>
+	<field name="desanovet" class="java.lang.Integer">
+		<fieldDescription><![CDATA[desanovet]]></fieldDescription>
+	</field>
+	<field name="posto" class="java.lang.String">
+		<fieldDescription><![CDATA[posto]]></fieldDescription>
+	</field>
+	<field name="vintecincot" class="java.lang.Integer">
+		<fieldDescription><![CDATA[vintecincot]]></fieldDescription>
+	</field>
+	<field name="distrito" class="java.lang.String">
+		<fieldDescription><![CDATA[distrito]]></fieldDescription>
+	</field>
+	<field name="desanoveh" class="java.lang.Integer">
+		<fieldDescription><![CDATA[desanoveh]]></fieldDescription>
+	</field>
+	<field name="quinzet" class="java.lang.Integer">
+		<fieldDescription><![CDATA[quinzet]]></fieldDescription>
+	</field>
+	<field name="quinzem" class="java.lang.Integer">
+		<fieldDescription><![CDATA[quinzem]]></fieldDescription>
+	</field>
+	<field name="vintecincom" class="java.lang.Integer">
+		<fieldDescription><![CDATA[vintecincom]]></fieldDescription>
+	</field>
+	<field name="localidade" class="java.lang.String">
+		<fieldDescription><![CDATA[localidade]]></fieldDescription>
+	</field>
+	<field name="quinzeh" class="java.lang.Integer">
+		<fieldDescription><![CDATA[quinzeh]]></fieldDescription>
+	</field>
+	<field name="vintecincoh" class="java.lang.Integer">
+		<fieldDescription><![CDATA[vintecincoh]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<staticText>
+				<reportElement x="274" y="70" width="253" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grafico de formandos por Faixa Etária]]></text>
+			</staticText>
+			<image>
+				<reportElement x="109" y="0" width="446" height="46"/>
+				<imageExpression><![CDATA[$P{img}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<summary>
+		<band height="304" splitType="Stretch">
+			<barChart>
+				<chart>
+					<reportElement x="0" y="15" width="802" height="248"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["15-18"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{localidade}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{quinzet}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["19-24"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{localidade}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{desanovet}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["25-29"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{localidade}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{vintecincot}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot labelRotation="30.0"/>
+					<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+				</barPlot>
+			</barChart>
+		</band>
+	</summary>
+</jasperReport>

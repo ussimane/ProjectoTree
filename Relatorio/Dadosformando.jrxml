@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="0.9090909090909091"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="352"/>
+	<parameter name="img" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="accaoformacaoList" class="java.util.List">
+		<fieldDescription><![CDATA[accaoformacaoList]]></fieldDescription>
+	</field>
+	<field name="actividadecontapropria" class="Modelo.Actividadecontapropria">
+		<fieldDescription><![CDATA[actividadecontapropria]]></fieldDescription>
+	</field>
+	<field name="actividadeprofissional" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[actividadeprofissional]]></fieldDescription>
+	</field>
+	<field name="areaactividade" class="java.lang.String">
+		<fieldDescription><![CDATA[areaactividade]]></fieldDescription>
+	</field>
+	<field name="casapropria" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[casapropria]]></fieldDescription>
+	</field>
+	<field name="chefefamilia" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[chefefamilia]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="contacto" class="java.lang.Integer">
+		<fieldDescription><![CDATA[contacto]]></fieldDescription>
+	</field>
+	<field name="curso" class="java.lang.String">
+		<fieldDescription><![CDATA[curso]]></fieldDescription>
+	</field>
+	<field name="dificiente" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[dificiente]]></fieldDescription>
+	</field>
+	<field name="diplomainefp" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[diplomainefp]]></fieldDescription>
+	</field>
+	<field name="diplomaprof" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[diplomaprof]]></fieldDescription>
+	</field>
+	<field name="empregado" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[empregado]]></fieldDescription>
+	</field>
+	<field name="empregador" class="java.lang.String">
+		<fieldDescription><![CDATA[empregador]]></fieldDescription>
+	</field>
+	<field name="filho" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[filho]]></fieldDescription>
+	</field>
+	<field name="idade" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idade]]></fieldDescription>
+	</field>
+	<field name="idcurso" class="Modelo.Curso">
+		<fieldDescription><![CDATA[idcurso]]></fieldDescription>
+	</field>
+	<field name="idestadocivil" class="Modelo.Estadocivil">
+		<fieldDescription><![CDATA[idestadocivil]]></fieldDescription>
+	</field>
+	<field name="idformando" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idformando]]></fieldDescription>
+	</field>
+	<field name="idlocalidade" class="Modelo.Localidade">
+		<fieldDescription><![CDATA[idlocalidade]]></fieldDescription>
+	</field>
+	<field name="idnivelhabilitacao" class="Modelo.Nivelhabilitacao">
+		<fieldDescription><![CDATA[idnivelhabilitacao]]></fieldDescription>
+	</field>
+	<field name="idnivelprof" class="Modelo.Nivelprofissional">
+		<fieldDescription><![CDATA[idnivelprof]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	</field>
+	<field name="nragregado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[nragregado]]></fieldDescription>
+	</field>
+	<field name="nrfilhos" class="java.lang.Integer">
+		<fieldDescription><![CDATA[nrfilhos]]></fieldDescription>
+	</field>
+	<field name="outrahabilidades" class="java.lang.String">
+		<fieldDescription><![CDATA[outrahabilidades]]></fieldDescription>
+	</field>
+	<field name="rendimentomedio" class="java.lang.Integer">
+		<fieldDescription><![CDATA[rendimentomedio]]></fieldDescription>
+	</field>
+	<field name="sexo" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[sexo]]></fieldDescription>
+	</field>
+	<field name="tipodificiencia" class="java.lang.String">
+		<fieldDescription><![CDATA[tipodificiencia]]></fieldDescription>
+	</field>
+	<field name="areadeformacao" class="Modelo.Areadeformacao">
+		<fieldDescription><![CDATA[areadeformacao]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="64" splitType="Stretch">
+			<image>
+				<reportElement x="58" y="17" width="432" height="47"/>
+				<imageExpression><![CDATA[$P{img}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="10" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="57" splitType="Stretch">
+			<staticText>
+				<reportElement x="197" y="30" width="205" height="20"/>
+				<textElement>
+					<font fontName="Comic Sans MS" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ficha do Formando]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="12" width="518" height="18"/>
+				<textElement>
+					<font fontName="Comic Sans MS" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Projecto Qualificações para a Promoção do Emprego e da Produtividade em Países de Baixo Rendimento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="621" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="83" y="40" width="98" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="27" y="40" width="56" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome Completo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="420" y="40" width="53" height="20">
+					<printWhenExpression><![CDATA[$F{sexo}]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Masculino]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="437" y="40" width="53" height="20">
+					<printWhenExpression><![CDATA[$F{sexo}.equals( false )]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Feminino]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="368" y="40" width="52" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sexo:]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="83" y="78" width="72" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{contacto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="244" y="40" width="63" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idade}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="189" y="40" width="50" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Idade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="27" y="78" width="56" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contacto]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="264" y="78" width="73" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{idestadocivil}.getEstado()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="188" y="78" width="75" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado civil]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="437" y="78" width="81" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{idnivelhabilitacao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="337" y="78" width="100" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nivel de habilitacao]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="83" y="122" width="63" height="20">
+					<printWhenExpression><![CDATA[$F{dificiente}]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Sim]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="83" y="122" width="63" height="20">
+					<printWhenExpression><![CDATA[$F{dificiente}.equals(false )]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Nao]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="27" y="122" width="56" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Deficiente]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="281" y="122" width="92" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipodificiencia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="189" y="122" width="86" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo deficiencia]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="122" width="81" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{idlocalidade}.getLocalidade()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="373" y="122" width="81" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Comunidade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="27" y="215" width="72" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Diploma inefp]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="264" y="215" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{curso}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="189" y="215" width="75" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Curso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="99" y="215" width="65" height="20">
+					<printWhenExpression><![CDATA[$F{diplomainefp}.equals( false )]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Nao]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="99" y="215" width="65" height="20">
+					<printWhenExpression><![CDATA[$F{diplomainefp}]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[sim]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="27" y="166" width="72" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Diploma prof]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="99" y="166" width="65" height="20">
+					<printWhenExpression><![CDATA[$F{diplomaprof}]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Sim]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="99" y="166" width="65" height="20">
+					<printWhenExpression><![CDATA[$F{diplomaprof}.equals( false )]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Nao]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="189" y="166" width="61" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Curso Tec:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="250" y="166" width="81" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Nenhuma]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="264" y="399" width="54" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nragregado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="197" y="399" width="67" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nr Agregado]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="92" y="473" width="58" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rendimentomedio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="27" y="473" width="63" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[R.Medio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="92" y="434" width="54" height="20">
+					<printWhenExpression><![CDATA[$F{filho}]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Sim]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="92" y="434" width="54" height="20">
+					<printWhenExpression><![CDATA[$F{filho}.equals( false )]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Nao]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="259" y="434" width="59" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nrfilhos}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="197" y="434" width="58" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nr. filhos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="27" y="434" width="65" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tem filho]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="27" y="399" width="81" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Chefe familia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="107" y="399" width="52" height="20">
+					<printWhenExpression><![CDATA[$F{chefefamilia}]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Sim]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="107" y="399" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{chefefamilia}.equals( false )]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Nao]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="197" y="473" width="74" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[casapropria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="275" y="473" width="42" height="20">
+					<printWhenExpression><![CDATA[$F{casapropria}]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Sim]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="275" y="473" width="42" height="20">
+					<printWhenExpression><![CDATA[$F{casapropria}.equals( false )]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Nao]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="27" y="282" width="72" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Activ. profissional]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="99" y="282" width="65" height="20">
+					<printWhenExpression><![CDATA[$F{actividadeprofissional}]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Sim]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="99" y="282" width="65" height="20">
+					<printWhenExpression><![CDATA[$F{actividadeprofissional}.equals( false )]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Nao]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="27" y="333" width="74" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[E.C.Outrem]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="101" y="333" width="63" height="20">
+					<printWhenExpression><![CDATA[$F{empregado}]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Sim]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="107" y="333" width="57" height="20">
+					<printWhenExpression><![CDATA[$F{empregado}.equals( false )]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Nao]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="290" y="333" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empregador}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="194" y="333" width="84" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[E.Empregador]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="390" y="166" width="116" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{outrahabilidades}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="334" y="166" width="56" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Outra.Habi]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="290" y="282" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{areaactividade}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="194" y="282" width="87" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Area Actividade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="339" y="434" width="70" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Curso Op2.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="334" y="473" width="75" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Curso Op3]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="409" y="434" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{areadeformacao}.getIdcurso2()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="409" y="473" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{areadeformacao}.getIdcurso3()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="409" y="399" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{idcurso}.getCurso()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="339" y="399" width="70" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Curso Op1.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="27" y="261" width="509" height="1"/>
+			</line>
+			<textField>
+				<reportElement mode="Opaque" x="92" y="529" width="100" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{actividadecontapropria}.getAreaactividade()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="27" y="529" width="63" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Area.Actv.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="0" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dados Pessoias]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="27" y="242" width="123" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dados Profissiomaiss]]></text>
+			</staticText>
+			<line>
+				<reportElement x="27" y="376" width="509" height="1"/>
+			</line>
+			<textField>
+				<reportElement mode="Opaque" x="273" y="529" width="45" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{actividadecontapropria}.getRendimento()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="197" y="529" width="74" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rendimento]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="409" y="529" width="100" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{actividadecontapropria}.getTempo()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="337" y="529" width="72" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tempo]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="94" y="571" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{actividadecontapropria}.getLugar()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="27" y="571" width="67" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lugar]]></text>
+			</staticText>
+			<line>
+				<reportElement x="27" y="518" width="509" height="1"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="27" y="499" width="170" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Actividade por conta propria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="27" y="353" width="170" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Situacao Familiar]]></text>
+			</staticText>
+			<line>
+				<reportElement x="17" y="24" width="519" height="1"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="14" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="12" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="17" splitType="Stretch"/>
+	</summary>
+</jasperReport>

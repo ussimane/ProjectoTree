@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="accaoformacaoCollection" class="java.util.Collection">
+		<fieldDescription><![CDATA[accaoformacaoCollection]]></fieldDescription>
+	</field>
+	<field name="actividadecontapropria" class="Modelo.Actividadecontapropria">
+		<fieldDescription><![CDATA[actividadecontapropria]]></fieldDescription>
+	</field>
+	<field name="actividadeprofissional" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[actividadeprofissional]]></fieldDescription>
+	</field>
+	<field name="areaactividade" class="java.lang.String">
+		<fieldDescription><![CDATA[areaactividade]]></fieldDescription>
+	</field>
+	<field name="areadeformacao" class="Modelo.Areadeformacao">
+		<fieldDescription><![CDATA[areadeformacao]]></fieldDescription>
+	</field>
+	<field name="casapropria" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[casapropria]]></fieldDescription>
+	</field>
+	<field name="chefefamilia" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[chefefamilia]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="contacto" class="java.lang.Integer">
+		<fieldDescription><![CDATA[contacto]]></fieldDescription>
+	</field>
+	<field name="curso" class="java.lang.String">
+		<fieldDescription><![CDATA[curso]]></fieldDescription>
+	</field>
+	<field name="dificiente" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[dificiente]]></fieldDescription>
+	</field>
+	<field name="diplomainefp" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[diplomainefp]]></fieldDescription>
+	</field>
+	<field name="diplomaprof" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[diplomaprof]]></fieldDescription>
+	</field>
+	<field name="empregado" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[empregado]]></fieldDescription>
+	</field>
+	<field name="empregador" class="java.lang.String">
+		<fieldDescription><![CDATA[empregador]]></fieldDescription>
+	</field>
+	<field name="filho" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[filho]]></fieldDescription>
+	</field>
+	<field name="idade" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idade]]></fieldDescription>
+	</field>
+	<field name="idcurso" class="Modelo.Curso">
+		<fieldDescription><![CDATA[idcurso]]></fieldDescription>
+	</field>
+	<field name="idestadocivil" class="Modelo.Estadocivil">
+		<fieldDescription><![CDATA[idestadocivil]]></fieldDescription>
+	</field>
+	<field name="idformando" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idformando]]></fieldDescription>
+	</field>
+	<field name="idlocalidade" class="Modelo.Localidade">
+		<fieldDescription><![CDATA[idlocalidade]]></fieldDescription>
+	</field>
+	<field name="idnivelhabilitacao" class="Modelo.Nivelhabilitacao">
+		<fieldDescription><![CDATA[idnivelhabilitacao]]></fieldDescription>
+	</field>
+	<field name="idnivelprof" class="Modelo.Nivelprofissional">
+		<fieldDescription><![CDATA[idnivelprof]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	</field>
+	<field name="nragregado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[nragregado]]></fieldDescription>
+	</field>
+	<field name="nrfilhos" class="java.lang.Integer">
+		<fieldDescription><![CDATA[nrfilhos]]></fieldDescription>
+	</field>
+	<field name="outrahabilidades" class="java.lang.String">
+		<fieldDescription><![CDATA[outrahabilidades]]></fieldDescription>
+	</field>
+	<field name="rendimentomedio" class="java.lang.Integer">
+		<fieldDescription><![CDATA[rendimentomedio]]></fieldDescription>
+	</field>
+	<field name="sexo" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[sexo]]></fieldDescription>
+	</field>
+	<field name="tipodificiencia" class="java.lang.String">
+		<fieldDescription><![CDATA[tipodificiencia]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
