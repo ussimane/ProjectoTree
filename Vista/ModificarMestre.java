@@ -1,0 +1,2408 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Vista;
+
+import Dao.CursoDao;
+import Dao.DistritoDao;
+import Dao.NivelHabilitacoesDao;
+import Dao.NivelProfissionalDao;
+import FormatacaoCampos.PermitirInteiros;
+import Modelo.Actividadeprofissao;
+import Modelo.Curso;
+import Modelo.Distrito;
+import Modelo.Equipamento;
+import Modelo.Equipamentofalta;
+import Modelo.Investimento;
+import Modelo.Localidade;
+import Modelo.Mercado;
+import Modelo.Mestre;
+import Modelo.Nivelhabilitacao;
+import Modelo.Nivelprofissional;
+import Modelo.Oficinaequipamento;
+import Modelo.OficinaequipamentoPK;
+import Modelo.Oficinamestre;
+import Modelo.Producao;
+import Modelo.Trabalhador;
+import Persistencia.ActividadeprofissaoJpaController;
+import Persistencia.EquipamentoJpaController;
+import Persistencia.InvestimentoJpaController;
+import Persistencia.LocalidadeJpaController;
+import Persistencia.MercadoJpaController;
+import Persistencia.MestreJpaController;
+import Persistencia.NivelhabilitacaoJpaController;
+import Persistencia.OficinamestreJpaController;
+import Persistencia.ProducaoJpaController;
+import Persistencia.TrabalhadorJpaController;
+import Persistencia.exceptions.NonexistentEntityException;
+import Persistencia.exceptions.PreexistingEntityException;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+/**
+ *
+ * @author MASSINGUE
+ */
+public class ModificarMestre extends javax.swing.JDialog {
+     DefaultListModel lista = new DefaultListModel();
+     DefaultListModel lista2 = new DefaultListModel();
+     DefaultListModel lista3 = new DefaultListModel();
+     DefaultListModel lista4 = new DefaultListModel();
+     Mestre mestre=new Mestre();
+     Oficinamestre oficinamestre=new Oficinamestre();
+     int idoficina=0;
+    /**
+     * Creates new form ModificarMestre
+     */
+    public ModificarMestre(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
+        initComponents();
+        
+    }
+
+    ModificarMestre(Mestre mestre) {
+         try {
+             initComponents();
+             this.mestre=mestre;
+                  
+                       prenchercomboDistrito();
+                       prenchercomboLocalidade();
+                       prenchercomboNivelHabilitacao();
+                       prenchercombonivelprofissional();
+                       prenchercombinvestimento();
+                       prenchercomboanosesperiencia();
+                       prenchercomboanosoficina();
+                       prenchercombomercado();
+                       prenchercombotrabalhador();
+                       prenchercombocursoprincipal();
+                       prenchercomboproducao();
+                       masculino.setSelected(true);
+                       naoAprendiz.setSelected(true);
+                       naoContrato.setSelected(true);
+                       naoCasa.setSelected(true);
+                       naoEnergia.setSelected(true);
+                       naoFaltaEquipamento.setSelected(true);
+                       naoFormacaoTecnica.setSelected(true);
+                       naoINEFP1.setSelected(true);
+                       naoReceberAprendiz.setSelected(true);
+                       naoSocio.setSelected(true);
+                       naoTecnProf1.setSelected(true);
+                       naoTrabalhador.setSelected(true);
+                       naoformalizada.setSelected(true);
+                       txtAprendizHomen.setDocument(new PermitirInteiros());
+                       txtEspecifiqueproducao.setDocument(new PermitirInteiros());
+                       txtAprendizMulher.setDocument(new PermitirInteiros());
+                       txtContacto.setDocument(new PermitirInteiros());
+                       txtNrAprendizes.setDocument(new PermitirInteiros());
+                       txtSalarioMedio.setDocument(new PermitirInteiros());
+                       txtidade.setDocument(new PermitirInteiros());
+                       txtnumerosocios.setDocument(new PermitirInteiros());
+                       txtrendimentoOficina.setDocument(new PermitirInteiros());
+                       
+                       prencherCampos();
+                       
+                       Dimension centro=Toolkit.getDefaultToolkit().getScreenSize();
+                       this.setLocation((centro.width-getWidth())/2 ,(centro.height-getHeight())/2);
+         } catch (SQLException ex) {
+             Logger.getLogger(ModificarMestre.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
+        buttonGroup5 = new javax.swing.ButtonGroup();
+        buttonGroup6 = new javax.swing.ButtonGroup();
+        buttonGroup7 = new javax.swing.ButtonGroup();
+        buttonGroup8 = new javax.swing.ButtonGroup();
+        buttonGroup9 = new javax.swing.ButtonGroup();
+        buttonGroup10 = new javax.swing.ButtonGroup();
+        buttonGroup11 = new javax.swing.ButtonGroup();
+        buttonGroup12 = new javax.swing.ButtonGroup();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        botaoguardar = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        txtnomemestre = new javax.swing.JTextField();
+        jPanel5 = new javax.swing.JPanel();
+        masculino = new javax.swing.JRadioButton();
+        femenino = new javax.swing.JRadioButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtidade = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        simFormacaoTecnica = new javax.swing.JRadioButton();
+        naoFormacaoTecnica = new javax.swing.JRadioButton();
+        txtEntidadepromotora = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        comboNivelHabilitacao = new javax.swing.JComboBox();
+        jPanel13 = new javax.swing.JPanel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        txtPrincipaisprodutos = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
+        txtoutrashabilidades = new javax.swing.JTextField();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        comboDistrito = new javax.swing.JComboBox();
+        ComboLocalidade = new javax.swing.JComboBox();
+        combocurso = new javax.swing.JComboBox();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txtContacto = new javax.swing.JTextField();
+        txtNacionalidade = new javax.swing.JTextField();
+        jPanel20 = new javax.swing.JPanel();
+        simINEFP1 = new javax.swing.JRadioButton();
+        naoINEFP1 = new javax.swing.JRadioButton();
+        txtCursoINEFP1 = new javax.swing.JTextField();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        simTecnProf1 = new javax.swing.JRadioButton();
+        naoTecnProf1 = new javax.swing.JRadioButton();
+        combonivelprofissional = new javax.swing.JComboBox();
+        jLabel53 = new javax.swing.JLabel();
+        txtdescricaooficina = new javax.swing.JTextField();
+        jLabel54 = new javax.swing.JLabel();
+        jPanel15 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel38 = new javax.swing.JLabel();
+        simSocios = new javax.swing.JRadioButton();
+        naoSocio = new javax.swing.JRadioButton();
+        txtnumerosocios = new javax.swing.JTextField();
+        jLabel40 = new javax.swing.JLabel();
+        comboAnosExperiencia = new javax.swing.JComboBox();
+        jLabel45 = new javax.swing.JLabel();
+        comboaonosoficina = new javax.swing.JComboBox();
+        jLabel49 = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        simFormalizada = new javax.swing.JRadioButton();
+        naoformalizada = new javax.swing.JRadioButton();
+        jLabel41 = new javax.swing.JLabel();
+        txtrendimentoOficina = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        comboMercado = new javax.swing.JComboBox();
+        jLabel59 = new javax.swing.JLabel();
+        simReceberAprendiz = new javax.swing.JRadioButton();
+        naoReceberAprendiz = new javax.swing.JRadioButton();
+        jLabel39 = new javax.swing.JLabel();
+        txtNrAprendizes = new javax.swing.JTextField();
+        jLabel42 = new javax.swing.JLabel();
+        txtAprendizMulher = new javax.swing.JTextField();
+        jLabel60 = new javax.swing.JLabel();
+        simAprendiz = new javax.swing.JRadioButton();
+        naoAprendiz = new javax.swing.JRadioButton();
+        txtAprendizHomen = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        txtinvestimento = new javax.swing.JTextField();
+        jLabel61 = new javax.swing.JLabel();
+        comboinvestimento = new javax.swing.JComboBox();
+        naoEnergia = new javax.swing.JRadioButton();
+        simEnergia = new javax.swing.JRadioButton();
+        jLabel62 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        comboproducao = new javax.swing.JComboBox();
+        txtEspecifiqueproducao = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        txtequipamentos = new javax.swing.JTextField();
+        simFaltaEquipamento = new javax.swing.JRadioButton();
+        jLabel1 = new javax.swing.JLabel();
+        naoFaltaEquipamento = new javax.swing.JRadioButton();
+        jLabel47 = new javax.swing.JLabel();
+        txtequipamentosfalta = new javax.swing.JTextField();
+        jPanel12 = new javax.swing.JPanel();
+        SimContrato = new javax.swing.JRadioButton();
+        naoContrato = new javax.swing.JRadioButton();
+        jLabel11 = new javax.swing.JLabel();
+        simTrabalhador = new javax.swing.JRadioButton();
+        jLabel12 = new javax.swing.JLabel();
+        naoTrabalhador = new javax.swing.JRadioButton();
+        txtSalarioMedio = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        simCasa = new javax.swing.JRadioButton();
+        naoCasa = new javax.swing.JRadioButton();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        txtRegaliasTrabalhador = new javax.swing.JTextField();
+        combotrabalhador = new javax.swing.JComboBox();
+        jLabel15 = new javax.swing.JLabel();
+        txtoutro = new javax.swing.JTextField();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jPanel7.setBackground(new java.awt.Color(0, 153, 255));
+        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jPanel8.setBackground(new java.awt.Color(0, 153, 255));
+
+        botaoguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/save1.png"))); // NOI18N
+        botaoguardar.setText("Guardar");
+        botaoguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoguardarActionPerformed(evt);
+            }
+        });
+
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/Erase.png"))); // NOI18N
+        jButton4.setText("Cancelar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addComponent(botaoguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 484, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoguardar)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel2.setText("Nome Completo:");
+
+        txtnomemestre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtnomemestreKeyPressed(evt);
+            }
+        });
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        buttonGroup1.add(masculino);
+        masculino.setText("Masculino");
+
+        buttonGroup1.add(femenino);
+        femenino.setText("Feminino");
+
+        jLabel3.setText("Sexo:");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(masculino)
+                        .addGap(18, 18, 18)
+                        .addComponent(femenino))
+                    .addComponent(jLabel3))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(masculino)
+                    .addComponent(femenino))
+                .addContainerGap())
+        );
+
+        jLabel4.setText("Idade:");
+
+        txtidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtidadeKeyPressed(evt);
+            }
+        });
+
+        jLabel5.setText("Habilitacoes Literarias:");
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        buttonGroup2.add(simFormacaoTecnica);
+        simFormacaoTecnica.setText("Sim");
+        simFormacaoTecnica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                simFormacaoTecnicaActionPerformed(evt);
+            }
+        });
+
+        buttonGroup2.add(naoFormacaoTecnica);
+        naoFormacaoTecnica.setText("Nao");
+        naoFormacaoTecnica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                naoFormacaoTecnicaActionPerformed(evt);
+            }
+        });
+
+        txtEntidadepromotora.setEnabled(false);
+        txtEntidadepromotora.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtEntidadepromotoraKeyPressed(evt);
+            }
+        });
+
+        jLabel8.setText("Entidade Promotora:");
+
+        jLabel7.setText("Formacao Tecnica:");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(simFormacaoTecnica, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(naoFormacaoTecnica, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtEntidadepromotora, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtEntidadepromotora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(naoFormacaoTecnica)
+                    .addComponent(simFormacaoTecnica))
+                .addGap(0, 20, Short.MAX_VALUE))
+        );
+
+        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel30.setText("Sector Actividade:");
+
+        jLabel31.setText("Principais Produtos:");
+
+        jLabel32.setText("Outras Habilidades:");
+
+        jLabel34.setText("Comunidade:");
+
+        jLabel29.setText("Distrito:");
+
+        comboDistrito.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboDistritoItemStateChanged(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel13Layout.createSequentialGroup()
+                            .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel30)
+                                .addComponent(combocurso, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(61, 61, 61)
+                            .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtoutrashabilidades, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel32)))
+                        .addComponent(jLabel31)
+                        .addComponent(txtPrincipaisprodutos, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel29)
+                            .addComponent(comboDistrito, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(50, 50, 50)
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel34)
+                            .addComponent(ComboLocalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(jLabel32))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtoutrashabilidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combocurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtPrincipaisprodutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(jLabel34))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboDistrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ComboLocalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        jLabel24.setText("Nacionalidade:");
+
+        jLabel6.setText("Contacto:");
+
+        txtContacto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtContactoKeyPressed(evt);
+            }
+        });
+
+        jPanel20.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel20.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        buttonGroup3.add(simINEFP1);
+        simINEFP1.setText("Sim");
+        simINEFP1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                simINEFP1ActionPerformed(evt);
+            }
+        });
+
+        buttonGroup3.add(naoINEFP1);
+        naoINEFP1.setText("Nao");
+        naoINEFP1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                naoINEFP1ActionPerformed(evt);
+            }
+        });
+
+        txtCursoINEFP1.setEnabled(false);
+        txtCursoINEFP1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCursoINEFP1ActionPerformed(evt);
+            }
+        });
+
+        jLabel50.setText("Diploma INEFP:");
+
+        jLabel51.setText("Curso:");
+
+        jLabel52.setText("Diploma Prof:");
+
+        buttonGroup4.add(simTecnProf1);
+        simTecnProf1.setText("Sim");
+        simTecnProf1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                simTecnProf1ActionPerformed(evt);
+            }
+        });
+
+        buttonGroup4.add(naoTecnProf1);
+        naoTecnProf1.setText("Nao");
+        naoTecnProf1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                naoTecnProf1ActionPerformed(evt);
+            }
+        });
+
+        combonivelprofissional.setEnabled(false);
+
+        jLabel53.setText("Nivel:");
+
+        jLabel54.setText("Descricao da Oficina:");
+
+        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
+        jPanel20.setLayout(jPanel20Layout);
+        jPanel20Layout.setHorizontalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel20Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtdescricaooficina)
+                    .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addComponent(simTecnProf1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(naoTecnProf1)
+                        .addGap(18, 18, 18)
+                        .addComponent(combonivelprofissional, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel20Layout.createSequentialGroup()
+                                .addComponent(simINEFP1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(naoINEFP1))
+                            .addComponent(jLabel50))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel20Layout.createSequentialGroup()
+                                .addComponent(jLabel51)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtCursoINEFP1)))
+                    .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel20Layout.createSequentialGroup()
+                                .addComponent(jLabel52)
+                                .addGap(46, 46, 46)
+                                .addComponent(jLabel53))
+                            .addComponent(jLabel54))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel20Layout.setVerticalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel20Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel50)
+                    .addComponent(jLabel51))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(simINEFP1)
+                    .addComponent(naoINEFP1)
+                    .addComponent(txtCursoINEFP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel52)
+                    .addComponent(jLabel53))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(simTecnProf1)
+                    .addComponent(naoTecnProf1)
+                    .addComponent(combonivelprofissional, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel54)
+                .addGap(18, 18, 18)
+                .addComponent(txtdescricaooficina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txtnomemestre, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(comboNivelHabilitacao, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5)))
+                            .addComponent(jLabel2))
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel24)
+                            .addComponent(jLabel6)
+                            .addComponent(txtContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNacionalidade)))
+                    .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(txtidade, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtnomemestre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtContacto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(29, 29, 29)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel24))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboNivelHabilitacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNacionalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(96, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Dados Pessoais     ", jPanel9);
+
+        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel38.setText("Tem Socios:");
+
+        buttonGroup5.add(simSocios);
+        simSocios.setText("Sim");
+        simSocios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                simSociosActionPerformed(evt);
+            }
+        });
+
+        buttonGroup5.add(naoSocio);
+        naoSocio.setText("Nao");
+        naoSocio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                naoSocioActionPerformed(evt);
+            }
+        });
+
+        txtnumerosocios.setEnabled(false);
+
+        jLabel40.setText("Nr de Socios:");
+
+        jLabel45.setText("Anos exercendo Actividade:");
+
+        jLabel49.setText("Anos exercendo Acti.Oficina:");
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addComponent(simSocios)
+                                .addGap(18, 18, 18)
+                                .addComponent(naoSocio))
+                            .addComponent(jLabel38))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addComponent(jLabel40)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtnumerosocios)))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(comboAnosExperiencia, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel45, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel49, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comboaonosoficina, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel38)
+                    .addComponent(jLabel40))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(simSocios)
+                    .addComponent(naoSocio)
+                    .addComponent(txtnumerosocios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addComponent(jLabel45)
+                        .addGap(8, 8, 8)
+                        .addComponent(comboAnosExperiencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addComponent(jLabel49)
+                        .addGap(8, 8, 8)
+                        .addComponent(comboaonosoficina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel16.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel16.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        buttonGroup8.add(simFormalizada);
+        simFormalizada.setText("Sim");
+
+        buttonGroup8.add(naoformalizada);
+        naoformalizada.setText("Nao");
+
+        jLabel41.setText("Formalizada:");
+
+        jLabel13.setText("Rendimento:");
+
+        jLabel58.setText("Mercado Principal:");
+
+        jLabel59.setText("Ja recebeu Aprend:");
+
+        buttonGroup10.add(simReceberAprendiz);
+        simReceberAprendiz.setText("Sim");
+        simReceberAprendiz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                simReceberAprendizActionPerformed(evt);
+            }
+        });
+
+        buttonGroup10.add(naoReceberAprendiz);
+        naoReceberAprendiz.setText("Nao");
+        naoReceberAprendiz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                naoReceberAprendizActionPerformed(evt);
+            }
+        });
+
+        jLabel39.setText("Quantifique:");
+
+        txtNrAprendizes.setEnabled(false);
+
+        jLabel42.setText("Mulheres:");
+
+        txtAprendizMulher.setEnabled(false);
+
+        jLabel60.setText("Receber Aprendizes:");
+
+        buttonGroup9.add(simAprendiz);
+        simAprendiz.setText("Sim");
+        simAprendiz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                simAprendizActionPerformed(evt);
+            }
+        });
+
+        buttonGroup9.add(naoAprendiz);
+        naoAprendiz.setText("Nao");
+        naoAprendiz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                naoAprendizActionPerformed(evt);
+            }
+        });
+
+        txtAprendizHomen.setEnabled(false);
+
+        jLabel14.setText("Homens:");
+
+        jLabel48.setText("Investimento Feito");
+
+        jLabel61.setText("Ultimo Investimento:");
+
+        buttonGroup12.add(naoEnergia);
+        naoEnergia.setText("Nao");
+
+        buttonGroup12.add(simEnergia);
+        simEnergia.setText("Sim");
+
+        jLabel62.setText("Tem Energia:");
+
+        jLabel46.setText("Producao ult.3 anos");
+
+        txtEspecifiqueproducao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEspecifiqueproducaoActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setText("Especifique:");
+
+        jLabel44.setText("Lista de Equipamentos:");
+
+        buttonGroup11.add(simFaltaEquipamento);
+        simFaltaEquipamento.setText("Sim");
+        simFaltaEquipamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                simFaltaEquipamentoActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Tem equip.Falta:");
+
+        buttonGroup11.add(naoFaltaEquipamento);
+        naoFaltaEquipamento.setText("Nao");
+        naoFaltaEquipamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                naoFaltaEquipamentoActionPerformed(evt);
+            }
+        });
+
+        jLabel47.setText("Lista de Equipamentos em falta:");
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel41)
+                            .addGroup(jPanel16Layout.createSequentialGroup()
+                                .addComponent(simFormalizada)
+                                .addGap(18, 18, 18)
+                                .addComponent(naoformalizada)))
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel58, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comboMercado, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtrendimentoOficina, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel60)
+                            .addGroup(jPanel16Layout.createSequentialGroup()
+                                .addComponent(simAprendiz)
+                                .addGap(18, 18, 18)
+                                .addComponent(naoAprendiz)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtAprendizHomen, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel42)
+                            .addComponent(txtAprendizMulher, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel16Layout.createSequentialGroup()
+                                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(comboproducao, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel46, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEspecifiqueproducao)
+                                    .addGroup(jPanel16Layout.createSequentialGroup()
+                                        .addComponent(jLabel17)
+                                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel16Layout.createSequentialGroup()
+                                .addComponent(jLabel59)
+                                .addGap(20, 20, 20)
+                                .addComponent(jLabel39)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel16Layout.createSequentialGroup()
+                                .addComponent(simReceberAprendiz)
+                                .addGap(18, 18, 18)
+                                .addComponent(naoReceberAprendiz)
+                                .addGap(15, 15, 15)
+                                .addComponent(txtNrAprendizes)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel61)
+                                .addComponent(comboinvestimento, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel16Layout.createSequentialGroup()
+                                    .addComponent(simFaltaEquipamento)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(naoFaltaEquipamento))
+                                .addComponent(jLabel1)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel48)
+                            .addComponent(txtinvestimento, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel16Layout.createSequentialGroup()
+                                .addGap(264, 264, 264)
+                                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel62)
+                                    .addGroup(jPanel16Layout.createSequentialGroup()
+                                        .addComponent(simEnergia)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(naoEnergia))))
+                            .addComponent(jLabel47)
+                            .addComponent(txtequipamentosfalta, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel44)
+                            .addComponent(txtequipamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel58)
+                            .addComponent(jLabel13))
+                        .addGap(8, 8, 8)
+                        .addComponent(comboMercado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addComponent(jLabel41)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(simFormalizada)
+                            .addComponent(naoformalizada)))
+                    .addComponent(txtrendimentoOficina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addGap(30, 30, 30))
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addComponent(jLabel60)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(simAprendiz)
+                            .addComponent(naoAprendiz)))
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addComponent(jLabel42)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtAprendizHomen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAprendizMulher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(13, 13, 13)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel59)
+                            .addComponent(jLabel39))
+                        .addGap(8, 8, 8)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(simReceberAprendiz)
+                            .addComponent(naoReceberAprendiz)
+                            .addComponent(txtNrAprendizes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                            .addComponent(jLabel48)
+                            .addGap(35, 35, 35))
+                        .addComponent(comboinvestimento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                                    .addComponent(jLabel61)
+                                    .addGap(7, 7, 7))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                                    .addComponent(jLabel62)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtinvestimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(simEnergia)
+                                .addComponent(naoEnergia)))))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(simFaltaEquipamento)
+                            .addComponent(naoFaltaEquipamento)))
+                    .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel16Layout.createSequentialGroup()
+                            .addComponent(jLabel47)
+                            .addGap(8, 8, 8)
+                            .addComponent(txtequipamentosfalta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel16Layout.createSequentialGroup()
+                            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel46)
+                                .addComponent(jLabel17))
+                            .addGap(8, 8, 8)
+                            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(comboproducao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtEspecifiqueproducao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel44)
+                .addGap(8, 8, 8)
+                .addComponent(txtequipamentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        buttonGroup7.add(SimContrato);
+        SimContrato.setText("Sim");
+        SimContrato.setEnabled(false);
+
+        buttonGroup7.add(naoContrato);
+        naoContrato.setText("Nao");
+        naoContrato.setEnabled(false);
+        naoContrato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                naoContratoActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setText("Contr.Trabalho:");
+
+        buttonGroup6.add(simTrabalhador);
+        simTrabalhador.setText("Sim");
+        simTrabalhador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                simTrabalhadorActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setText("Tem Trabalhador:");
+
+        buttonGroup6.add(naoTrabalhador);
+        naoTrabalhador.setText("Nao");
+        naoTrabalhador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                naoTrabalhadorActionPerformed(evt);
+            }
+        });
+
+        txtSalarioMedio.setEnabled(false);
+
+        jLabel19.setText("Salario Medio Auferido:");
+
+        jLabel26.setText("Nr Trabalhadores:");
+
+        simCasa.setText("Sim");
+
+        naoCasa.setText("Nao");
+
+        jLabel27.setText("Tem Casa Propria:");
+
+        jLabel10.setText("Outras Regalias:");
+
+        txtRegaliasTrabalhador.setEnabled(false);
+
+        jLabel15.setText("Outro:");
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addComponent(simTrabalhador)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(naoTrabalhador))
+                            .addComponent(jLabel12))
+                        .addGap(47, 47, 47)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(combotrabalhador, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtSalarioMedio, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel10)
+                            .addComponent(txtRegaliasTrabalhador, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(33, 33, 33)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addGap(168, 168, 168))
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addComponent(txtoutro)
+                                .addGap(85, 85, 85)))
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel27)
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addComponent(simCasa)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(naoCasa))))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(SimContrato)
+                        .addGap(18, 18, 18)
+                        .addComponent(naoContrato))
+                    .addComponent(jLabel11))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtoutro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel26))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(simTrabalhador)
+                                    .addComponent(naoTrabalhador)))
+                            .addComponent(combotrabalhador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(SimContrato)
+                                    .addComponent(naoContrato))))
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addComponent(jLabel27)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(simCasa)
+                                    .addComponent(naoCasa)))
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtSalarioMedio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtRegaliasTrabalhador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Dados da Oficina", jPanel15);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 915, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1)
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void botaoguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoguardarActionPerformed
+         String msg = "Deseja Realmente Modificar O Mestre?";
+        int resp = JOptionPane.showOptionDialog(getContentPane(), msg, "confirmação", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Sim", "Não"}, "Não");
+        if (resp == JOptionPane.YES_OPTION){
+                         
+                 verificarcampos();
+            
+             }
+        
+    }//GEN-LAST:event_botaoguardarActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void txtnomemestreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnomemestreKeyPressed
+        //  botaoguardar.setEnabled(botaAceitar());
+    }//GEN-LAST:event_txtnomemestreKeyPressed
+
+    private void txtidadeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidadeKeyPressed
+        // botaoguardar.setEnabled(botaAceitar());
+    }//GEN-LAST:event_txtidadeKeyPressed
+
+    private void simFormacaoTecnicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simFormacaoTecnicaActionPerformed
+        if(simFormacaoTecnica.isSelected()){
+            txtEntidadepromotora.setEnabled(true);}
+        else
+        txtEntidadepromotora.setEnabled(false);
+    }//GEN-LAST:event_simFormacaoTecnicaActionPerformed
+
+    private void naoFormacaoTecnicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_naoFormacaoTecnicaActionPerformed
+        if(simFormacaoTecnica.isSelected()){
+            txtEntidadepromotora.setEnabled(true);}
+        else
+        txtEntidadepromotora.setEnabled(false);
+    }//GEN-LAST:event_naoFormacaoTecnicaActionPerformed
+
+    private void txtEntidadepromotoraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEntidadepromotoraKeyPressed
+        // botaoguardar.setEnabled(botaAceitar());
+    }//GEN-LAST:event_txtEntidadepromotoraKeyPressed
+
+    private void comboDistritoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboDistritoItemStateChanged
+        try {
+            prenchercomboLocalidade();
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastrarMestre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_comboDistritoItemStateChanged
+
+    private void txtContactoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactoKeyPressed
+        // botaoguardar.setEnabled(botaAceitar());
+    }//GEN-LAST:event_txtContactoKeyPressed
+
+    private void simINEFP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simINEFP1ActionPerformed
+        if(simINEFP1.isSelected()){
+            txtCursoINEFP1.setEnabled(true);}
+        else
+        txtCursoINEFP1.setEnabled(false);
+    }//GEN-LAST:event_simINEFP1ActionPerformed
+
+    private void naoINEFP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_naoINEFP1ActionPerformed
+        if(simINEFP1.isSelected()){
+            txtCursoINEFP1.setEnabled(true);}
+        else
+        txtCursoINEFP1.setEnabled(false);
+    }//GEN-LAST:event_naoINEFP1ActionPerformed
+
+    private void txtCursoINEFP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCursoINEFP1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCursoINEFP1ActionPerformed
+
+    private void simTecnProf1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simTecnProf1ActionPerformed
+        if(simTecnProf1.isSelected()){
+            combonivelprofissional.setEnabled(true);
+            // txtdescricaooficina.setEnabled(true);
+        }
+        else{
+            combonivelprofissional.setEnabled(true);
+            //    txtdescricaooficina.setEnabled(true);
+        }
+    }//GEN-LAST:event_simTecnProf1ActionPerformed
+
+    private void naoTecnProf1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_naoTecnProf1ActionPerformed
+        if(simTecnProf1.isSelected()){
+            combonivelprofissional.setEnabled(true);
+            txtdescricaooficina.setEnabled(true);
+        }
+        else{
+            combonivelprofissional.setEnabled(false);
+            txtdescricaooficina.setEnabled(false);}
+    }//GEN-LAST:event_naoTecnProf1ActionPerformed
+
+    private void simSociosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simSociosActionPerformed
+        if(simSocios.isSelected()){
+            txtnumerosocios.setEnabled(true);
+            //            txtTempocontapropria.setEnabled(true);
+            //            Fora.setEnabled(true);
+            //            comunidade.setEnabled(true);
+            //            txtrendimentocontapropria.setEnabled(true);
+        }
+        else{
+            txtnumerosocios.setEnabled(false);
+            //            txtTempocontapropria.setEnabled(false);
+            //            Fora.setEnabled(false);
+            //            comunidade.setEnabled(false);
+            //            txtrendimentocontapropria.setEnabled(false);
+        }
+    }//GEN-LAST:event_simSociosActionPerformed
+
+    private void naoSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_naoSocioActionPerformed
+        if(simSocios.isSelected()){
+            txtnumerosocios.setEnabled(true);
+            //            txtTempocontapropria.setEnabled(true);
+            //            Fora.setEnabled(true);
+            //            comunidade.setEnabled(true);
+        }
+        else{
+            txtnumerosocios.setEnabled(false);
+            //
+        }
+    }//GEN-LAST:event_naoSocioActionPerformed
+
+    private void simReceberAprendizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simReceberAprendizActionPerformed
+        if(simReceberAprendiz.isSelected()){
+            txtNrAprendizes.setEnabled(true);
+
+        }
+        else{
+            txtNrAprendizes.setEnabled(false);}
+    }//GEN-LAST:event_simReceberAprendizActionPerformed
+
+    private void naoReceberAprendizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_naoReceberAprendizActionPerformed
+        if(naoReceberAprendiz.isSelected()){
+            txtNrAprendizes.setEnabled(false);
+
+        }
+        else{
+            txtNrAprendizes.setEnabled(true);}
+    }//GEN-LAST:event_naoReceberAprendizActionPerformed
+
+    private void simAprendizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simAprendizActionPerformed
+        if(simAprendiz.isSelected()){
+            txtAprendizHomen.setEnabled(true);
+            txtAprendizMulher.setEnabled(true);
+        }
+        else{
+            txtAprendizHomen.setEnabled(false);
+            txtAprendizMulher.setEnabled(false);}
+    }//GEN-LAST:event_simAprendizActionPerformed
+
+    private void naoAprendizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_naoAprendizActionPerformed
+        if(naoAprendiz.isSelected()){
+            txtAprendizHomen.setEnabled(false);
+            txtAprendizMulher.setEnabled(false);
+        }
+        else{
+            txtAprendizHomen.setEnabled(true);
+            txtAprendizMulher.setEnabled(true);}
+    }//GEN-LAST:event_naoAprendizActionPerformed
+
+    private void txtEspecifiqueproducaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEspecifiqueproducaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEspecifiqueproducaoActionPerformed
+
+    private void simFaltaEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simFaltaEquipamentoActionPerformed
+        if(simFaltaEquipamento.isSelected()){
+            txtequipamentosfalta.setEnabled(true);
+
+        }
+        else{
+            txtequipamentosfalta.setEnabled(false);
+        }
+    }//GEN-LAST:event_simFaltaEquipamentoActionPerformed
+
+    private void naoFaltaEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_naoFaltaEquipamentoActionPerformed
+        if(naoFaltaEquipamento.isSelected()){
+
+            txtequipamentosfalta.setEnabled(false);
+        }
+        else{
+            txtequipamentosfalta.setEnabled(true);
+
+        }
+    }//GEN-LAST:event_naoFaltaEquipamentoActionPerformed
+
+    private void naoContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_naoContratoActionPerformed
+        txtSalarioMedio.setEnabled(false);
+    }//GEN-LAST:event_naoContratoActionPerformed
+
+    private void simTrabalhadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simTrabalhadorActionPerformed
+        if(simTrabalhador.isSelected()){
+            txtSalarioMedio.setEnabled(true);
+            combotrabalhador.setEnabled(true);
+            SimContrato.setEnabled(true);
+            naoContrato.setEnabled(true);
+            txtRegaliasTrabalhador.setEnabled(true);
+        }
+        else{
+            txtSalarioMedio.setEnabled(false);
+            combotrabalhador.setEnabled(false);
+            SimContrato.setEnabled(false);
+            naoContrato.setEnabled(false);
+            txtRegaliasTrabalhador.setEnabled(false);
+        }
+    }//GEN-LAST:event_simTrabalhadorActionPerformed
+
+    private void naoTrabalhadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_naoTrabalhadorActionPerformed
+        if(naoTrabalhador.isSelected()){
+            txtSalarioMedio.setEnabled(false);
+            combotrabalhador.setEnabled(false);
+            SimContrato.setEnabled(false);
+            naoContrato.setEnabled(false);
+            txtRegaliasTrabalhador.setEnabled(false);
+        }
+        else{
+            txtSalarioMedio.setEnabled(true);
+             combotrabalhador.setEnabled(true);
+            SimContrato.setEnabled(true);
+            naoContrato.setEnabled(true);
+            txtRegaliasTrabalhador.setEnabled(true);}
+    }//GEN-LAST:event_naoTrabalhadorActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(ModificarMestre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(ModificarMestre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(ModificarMestre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ModificarMestre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the dialog */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                ModificarMestre dialog = new ModificarMestre(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox ComboLocalidade;
+    private javax.swing.JRadioButton SimContrato;
+    private javax.swing.JButton botaoguardar;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup10;
+    private javax.swing.ButtonGroup buttonGroup11;
+    private javax.swing.ButtonGroup buttonGroup12;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.ButtonGroup buttonGroup5;
+    private javax.swing.ButtonGroup buttonGroup6;
+    private javax.swing.ButtonGroup buttonGroup7;
+    private javax.swing.ButtonGroup buttonGroup8;
+    private javax.swing.ButtonGroup buttonGroup9;
+    private javax.swing.JComboBox comboAnosExperiencia;
+    private javax.swing.JComboBox comboDistrito;
+    private javax.swing.JComboBox comboMercado;
+    private javax.swing.JComboBox comboNivelHabilitacao;
+    private javax.swing.JComboBox comboaonosoficina;
+    private javax.swing.JComboBox combocurso;
+    private javax.swing.JComboBox comboinvestimento;
+    private javax.swing.JComboBox combonivelprofissional;
+    private javax.swing.JComboBox comboproducao;
+    private javax.swing.JComboBox combotrabalhador;
+    private javax.swing.JRadioButton femenino;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JRadioButton masculino;
+    private javax.swing.JRadioButton naoAprendiz;
+    private javax.swing.JRadioButton naoCasa;
+    private javax.swing.JRadioButton naoContrato;
+    private javax.swing.JRadioButton naoEnergia;
+    private javax.swing.JRadioButton naoFaltaEquipamento;
+    private javax.swing.JRadioButton naoFormacaoTecnica;
+    private javax.swing.JRadioButton naoINEFP1;
+    private javax.swing.JRadioButton naoReceberAprendiz;
+    private javax.swing.JRadioButton naoSocio;
+    private javax.swing.JRadioButton naoTecnProf1;
+    private javax.swing.JRadioButton naoTrabalhador;
+    private javax.swing.JRadioButton naoformalizada;
+    private javax.swing.JRadioButton simAprendiz;
+    private javax.swing.JRadioButton simCasa;
+    private javax.swing.JRadioButton simEnergia;
+    private javax.swing.JRadioButton simFaltaEquipamento;
+    private javax.swing.JRadioButton simFormacaoTecnica;
+    private javax.swing.JRadioButton simFormalizada;
+    private javax.swing.JRadioButton simINEFP1;
+    private javax.swing.JRadioButton simReceberAprendiz;
+    private javax.swing.JRadioButton simSocios;
+    private javax.swing.JRadioButton simTecnProf1;
+    private javax.swing.JRadioButton simTrabalhador;
+    private javax.swing.JTextField txtAprendizHomen;
+    private javax.swing.JTextField txtAprendizMulher;
+    private javax.swing.JTextField txtContacto;
+    private javax.swing.JTextField txtCursoINEFP1;
+    private javax.swing.JTextField txtEntidadepromotora;
+    private javax.swing.JTextField txtEspecifiqueproducao;
+    private javax.swing.JTextField txtNacionalidade;
+    private javax.swing.JTextField txtNrAprendizes;
+    private javax.swing.JTextField txtPrincipaisprodutos;
+    private javax.swing.JTextField txtRegaliasTrabalhador;
+    private javax.swing.JTextField txtSalarioMedio;
+    private javax.swing.JTextField txtdescricaooficina;
+    private javax.swing.JTextField txtequipamentos;
+    private javax.swing.JTextField txtequipamentosfalta;
+    private javax.swing.JTextField txtidade;
+    private javax.swing.JTextField txtinvestimento;
+    private javax.swing.JTextField txtnomemestre;
+    private javax.swing.JTextField txtnumerosocios;
+    private javax.swing.JTextField txtoutrashabilidades;
+    private javax.swing.JTextField txtoutro;
+    private javax.swing.JTextField txtrendimentoOficina;
+    // End of variables declaration//GEN-END:variables
+
+   
+//   public void preencherEquipamentos(){
+//
+//    List<Equipamento> equip = new EquipamentoJpaController().findEquipamentoEntities();
+//    for(Equipamento e : equip){
+//    lista.addElement(e);
+//    }
+//    listaEquipamentos.setModel(lista);
+//    }
+//   
+//    public void preencherEquipamentosFalta(){
+//
+//    List<Equipamento> equip = new EquipamentoJpaController().findEquipamentoEntities();
+//    for(Equipamento e : equip){
+//    lista3.addElement(e);
+//    }
+//    listadeequipamentos2.setModel(lista3);
+//    }
+    
+//     public void listarequipamentos() {
+//                     
+//           
+//            List<Equipamento>  equip = new EquipamentoJpaController().findEquipamentoEntities();
+//           
+//                DefaultTableModel tbm=(DefaultTableModel) ListaEquipamento.getModel();
+//                
+//                for (int i = tbm.getRowCount()-1; i >= 0; i--) {
+//                    tbm.removeRow(i);
+//                }
+//                int i=0;
+//                for(Equipamento e : equip){
+//                    tbm.addRow(new String[1]);
+//                    
+//                    ListaEquipamento.setValueAt(e.getIdequipamento(), i, 0);
+//                    ListaEquipamento.setValueAt(e.getEquipamento(), i, 1);
+//                    
+//                    i++;
+//        }
+//       
+//    }  
+//    
+//    public void listarequipamentos2() {
+//                     
+//           
+//            List<Equipamento>  equip = new EquipamentoJpaController().findEquipamentoEntities();
+//           
+//                DefaultTableModel tbm=(DefaultTableModel) ListaEquipamento1.getModel();
+//                
+//                for (int i = tbm.getRowCount()-1; i >= 0; i--) {
+//                    tbm.removeRow(i);
+//                }
+//                int i=0;
+//                for(Equipamento e : equip){
+//                    tbm.addRow(new String[1]);
+//                    
+//                    ListaEquipamento1.setValueAt(e.getIdequipamento(), i, 0);
+//                    ListaEquipamento1.setValueAt(e.getEquipamento(), i, 1);
+//                    
+//                    i++;
+//        }
+//       
+//    }  
+//    
+       private void prenchercombocursoprincipal() throws SQLException {
+       
+             List<Curso> es = new CursoDao().prencherCurso();
+                combocurso.removeAllItems();
+                for ( Curso d : es) {
+                        combocurso.addItem(d.getCurso());
+               }
+           
+    }
+     
+      private void prenchercombotrabalhador() throws SQLException {
+       
+             List<Trabalhador> es = new TrabalhadorJpaController().findTrabalhadorEntities();
+          
+                combotrabalhador.removeAllItems();
+                for ( Trabalhador d : es) {
+                        combotrabalhador.addItem(d.getNumerotrab());
+               }
+           
+    }
+       private void prenchercomboproducao() throws SQLException {
+       
+             List<Producao> es = new ProducaoJpaController().findProducaoEntities();
+          
+                comboproducao.removeAllItems();
+                for (Producao d : es) {
+                        comboproducao.addItem(d.getProducao());
+               }
+           
+    }
+     private void prenchercomboNivelHabilitacao() throws SQLException {
+       
+             List< Nivelhabilitacao> nivelHabilitacao = new NivelhabilitacaoJpaController().findNivelhabilitacaoEntities();
+                comboNivelHabilitacao.removeAllItems();
+                for ( Nivelhabilitacao d : nivelHabilitacao) {
+                        comboNivelHabilitacao.addItem(d);
+               }
+           
+    }
+      private void prenchercomboDistrito() throws SQLException {
+       
+             List<Distrito> distritos = new DistritoDao().mostrarDistritos();
+                comboDistrito.removeAllItems();
+                for (Distrito d : distritos) {
+                         comboDistrito.addItem(d);
+               }
+               
+                   
+       
+    }
+     
+       private void prenchercomboLocalidade() throws SQLException {
+       
+             List<Localidade> comunidades = new LocalidadeJpaController().getloLocalidades(comboDistrito.getSelectedIndex()+1);
+                ComboLocalidade.removeAllItems();
+                for (Localidade p : comunidades) {
+                         ComboLocalidade.addItem(p);
+               }
+               
+                   
+       
+    }
+        private void prenchercombonivelprofissional() throws SQLException {
+       
+             List<Nivelprofissional> np = new NivelProfissionalDao().prenchernivelprofissional();
+                combonivelprofissional.removeAllItems();
+                for (Nivelprofissional p : np) {
+                         combonivelprofissional.addItem(p);
+               }
+               
+                   
+       
+    }
+        
+         private void prenchercomboanosesperiencia() throws SQLException {
+       
+             List<Actividadeprofissao> np = new ActividadeprofissaoJpaController().findActividadeprofissaoEntities();
+                comboAnosExperiencia.removeAllItems();
+                for (Actividadeprofissao p : np) {
+                         comboAnosExperiencia.addItem(p);
+               }
+               
+                   
+       
+    }
+         
+          private void prenchercomboanosoficina() throws SQLException {
+       
+             List<Actividadeprofissao> np = new ActividadeprofissaoJpaController().findActividadeprofissaoEntities();
+                comboaonosoficina.removeAllItems();
+                for (Actividadeprofissao p : np) {
+                         comboaonosoficina.addItem(p);
+               }
+               
+                   
+       
+    }
+           private void prenchercombomercado() throws SQLException {
+       
+             List<Mercado> np = new MercadoJpaController().findMercadoEntities();
+                comboMercado.removeAllItems();
+                for (Mercado p : np) {
+                         comboMercado.addItem(p);
+               }
+               
+           }
+           
+        private void prenchercombinvestimento() throws SQLException {
+       
+             List<Investimento> np = new InvestimentoJpaController().findInvestimentoEntities();
+                comboinvestimento.removeAllItems();
+                for (Investimento p : np) {
+                         comboinvestimento.addItem(p);
+               }
+               
+           }
+        private void cadastrarMestre(){
+         try {
+           //  JOptionPane.showMessageDialog(null, mestre.getIdmestre());
+          mestre.setIdmestre(mestre.getIdmestre());
+          mestre.setNome(txtnomemestre.getText());
+          mestre.setContacto(Integer.valueOf(txtContacto.getText()));
+          if(masculino.isSelected()){
+                mestre.setSexo(true);
+            } else if(femenino.isSelected()){
+               mestre.setSexo(false);
+            }
+            Localidade l=((Localidade)ComboLocalidade.getSelectedItem());
+             mestre.setIdlocalidade(l);
+             mestre.setIdade(Integer.valueOf(txtidade.getText()));
+             mestre.setNacionalidade(txtNacionalidade.getText());
+             mestre.setIdnivelhabilitacao(new Nivelhabilitacao(comboNivelHabilitacao.getSelectedIndex()+1));
+             if(simINEFP1.isSelected()){
+                mestre.setDiplomainefp(true);
+                mestre.setCurso(txtCursoINEFP1.getText());
+            } else 
+                  if(naoINEFP1.isSelected()){
+                 mestre.setDiplomainefp(false);
+             }
+             if(simTecnProf1.isSelected()){
+                mestre.setDiplomaprof(true);
+                mestre.setIdnivelprof(new Nivelprofissional(combonivelprofissional.getSelectedIndex()+1));
+                 
+            } else 
+                  if(naoTecnProf1.isSelected()){
+                  mestre.setDiplomaprof(false);
+                  mestre.setIdnivelprof(new Nivelprofissional(1));
+             }
+             if(simFormacaoTecnica.isSelected()){
+               mestre.setFormacaotecnica(true);
+               mestre.setEntidadeformadora(txtEntidadepromotora.getText());
+             }
+             if(naoFormacaoTecnica.isSelected()){
+                 mestre.setFormacaotecnica(false);
+             }
+             
+          // mestre.setAreaactividade(txtActividadeProfissional.getText());
+           mestre.setIdcurso(new Curso(combocurso.getSelectedIndex()+1));
+           mestre.setProducao(txtPrincipaisprodutos.getText());
+           mestre.setOutrahabilidade(txtoutrashabilidades.getText());
+             new MestreJpaController().edit(mestre);
+             cadastrarOficina();
+            // JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
+         } catch (NonexistentEntityException ex) {
+             Logger.getLogger(ModificarMestre.class.getName()).log(Level.SEVERE, null, ex);
+         } catch (Exception ex) {
+             Logger.getLogger(ModificarMestre.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        }
+        private void cadastrarOficina(){
+         try {
+             oficinamestre.setIdmestre(mestre.getIdmestre());
+           if(simTrabalhador.isSelected()){
+                oficinamestre.setTemtrabalhador(true);
+                oficinamestre.setNrtrabalhador(new Trabalhador(combotrabalhador.getSelectedIndex()+1));
+                if(!txtSalarioMedio.getText().trim().equals("")){
+                oficinamestre.setSalariomedio(Float.valueOf(txtSalarioMedio.getText()));
+                } else{
+                 oficinamestre.setSalariomedio(Float.valueOf(0));
+                }
+                oficinamestre.setProdutos(txtoutro.getText());
+                oficinamestre.setOutrasregalias(txtRegaliasTrabalhador.getText());
+                if(SimContrato.isSelected())
+                    oficinamestre.setTrabalhadorcontrato(true);
+                else
+                    if(naoContrato.isSelected())
+                         oficinamestre.setTrabalhadorcontrato(false);
+             
+             
+             }else
+                 if(naoTrabalhador.isSelected()){
+                    oficinamestre.setTemtrabalhador(false);
+                    oficinamestre.setNrtrabalhador(new Trabalhador(1));
+                    oficinamestre.setQhomen(0);
+                    oficinamestre.setQmulher(0);
+                    oficinamestre.setSalariomedio(Float.valueOf(0));
+                    oficinamestre.setOutrasregalias("");
+                
+                    oficinamestre.setTrabalhadorcontrato(false);
+                
+                 
+                 }
+             if(simSocios.isSelected()){
+                oficinamestre.setSocios("Sim");
+                if(!txtnumerosocios.getText().trim().equals("")){
+                oficinamestre.setNrsocios(Integer.valueOf(txtnumerosocios.getText()));
+                }else
+                {
+                    oficinamestre.setNrsocios(0);
+                }
+             }
+             else
+                 if(naoSocio.isSelected()){
+                oficinamestre.setSocios("Nao");
+                oficinamestre.setNrsocios(0);
+          
+          }
+             oficinamestre.setIdanosexperiencia(new Actividadeprofissao(comboAnosExperiencia.getSelectedIndex()+1));
+             oficinamestre.setIdanosoficina(new Actividadeprofissao(comboaonosoficina.getSelectedIndex()+1));
+             oficinamestre.setIdmercado(new Mercado(comboMercado.getSelectedIndex()+1));
+             oficinamestre.setIdanoinvestimentosequipamentos(new Investimento(comboinvestimento.getSelectedIndex()+1));
+             if(simFormalizada.isSelected())
+                 oficinamestre.setFormalizada("Sim");
+             else
+                 if(naoformalizada.isSelected())
+                oficinamestre.setFormalizada("Nao"); 
+             if(!txtrendimentoOficina.getText().trim().equals("")){
+             oficinamestre.setRendimentomedio(Float.valueOf(txtrendimentoOficina.getText()));
+             }else{
+               oficinamestre.setRendimentomedio(Float.valueOf(0));
+             }
+            // int nr=0;
+             if(simAprendiz.isSelected()){
+                oficinamestre.setDisponibilidade(true);
+                if(!txtAprendizHomen.getText().trim().equals("")){
+                oficinamestre.setAhomen(Integer.valueOf(txtAprendizHomen.getText()));
+                }else
+                {
+                    oficinamestre.setAhomen(0);
+                }
+                if(!txtAprendizMulher.getText().trim().equals("")){
+                oficinamestre.setAmulher(Integer.valueOf(txtAprendizMulher.getText()));}
+                {
+                  oficinamestre.setAmulher(0);
+                }
+                oficinamestre.setNraprendizes(Integer.valueOf(txtAprendizHomen.getText())+Integer.valueOf(txtAprendizMulher.getText()));
+               // nr=Integer.valueOf(txtAprendizHomen.getText())+Integer.valueOf(txtAprendizMulher.getText());
+             }
+               else
+                 if(naoAprendiz.isSelected()){
+                oficinamestre.setDisponibilidade(false);
+                oficinamestre.setAhomen(0);
+                oficinamestre.setAmulher(0);
+                oficinamestre.setNraprendizes(0);
+             }
+             
+              if(simReceberAprendiz.isSelected()){
+                oficinamestre.setRecebeuaprendizes(true);
+                if(!txtNrAprendizes.getText().trim().equals("")){
+                oficinamestre.setQuantidade(txtNrAprendizes.getText());
+                }
+                else
+                {
+                oficinamestre.setQuantidade("0");
+                }
+             }
+               else
+                 if(naoAprendiz.isSelected()){
+                oficinamestre.setRecebeuaprendizes(false);
+                oficinamestre.setQuantidade("");
+             }
+              if(simEnergia.isSelected())
+                  oficinamestre.setEnergia(true);
+              else
+                  if(naoEnergia.isSelected())
+                      oficinamestre.setEnergia(false);
+              oficinamestre.setInvestimentos(txtinvestimento.getText());
+              oficinamestre.setDescricaooficina(txtdescricaooficina.getText());
+              oficinamestre.setIdproducao(new Producao(comboproducao.getSelectedIndex()+1));
+              if(!txtEspecifiqueproducao.getText().trim().equals("")){ 
+              oficinamestre.setQtdprod(Integer.valueOf(txtEspecifiqueproducao.getText()));
+              }else
+              {
+              oficinamestre.setQtdprod(Integer.valueOf(0));
+              }
+              oficinamestre.setEquipamentos(txtequipamentos.getText());
+              oficinamestre.setFaltaequipamento(txtequipamentosfalta.getText());
+              new OficinamestreJpaController().edit(oficinamestre);
+             // cadastrarequipamentos();
+         } catch (PreexistingEntityException ex) {
+             Logger.getLogger(CadastrarMestre.class.getName()).log(Level.SEVERE, null, ex);
+         } catch (Exception ex) {
+             Logger.getLogger(CadastrarMestre.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        }
+//        private void cadastrarequipamentos(){
+//            
+//          if (listaequipamentoadicionado.getRowCount() > 0) {
+//                for (int i = 0; i < listaequipamentoadicionado.getRowCount(); i++) {
+//                    try {
+//                        Oficinaequipamento oe=new Oficinaequipamento();
+//                        OficinaequipamentoPK ofpk=new OficinaequipamentoPK();
+//                        ofpk.setIdoficina(oficinamestre.getMestre().getIdmestre());
+//                        ofpk.setIdequipamento(Integer.valueOf(listaequipamentoadicionado.getValueAt(i, 0).toString()));
+//                        oe.setOficinaequipamentoPK(ofpk);
+//                        oe.setQuantidade(Integer.valueOf(listaequipamentoadicionado.getValueAt(i, 2).toString()));
+//                        new OficinaequipamentoJpaController().edit(oe);
+//                    } catch (PreexistingEntityException ex) {
+//                        Logger.getLogger(CadastrarMestre.class.getName()).log(Level.SEVERE, null, ex);
+//                    } catch (Exception ex) {
+//                        Logger.getLogger(CadastrarMestre.class.getName()).log(Level.SEVERE, null, ex);
+//                    }
+//                  
+//                }
+//
+//            }
+//        
+//        }
+//        
+//         private void cadastrarequipamentosfalta(){
+//            
+//          if (listaequipamentoadicionado1.getRowCount() > 0) {
+//                for (int i = 0; i < listaequipamentoadicionado1.getRowCount(); i++) {
+//                    try {
+//                        Equipamentofalta of=new Equipamentofalta();
+//                        Equipamento e=new Equipamento();
+//                        e.setIdequipamento(Integer.valueOf(listaequipamentoadicionado1.getValueAt(i, 0).toString()));
+//                        of.setOficinamestre(oficinamestre);
+//                        of.setEquipamento(e);
+//                        of.setQuantidade(Integer.valueOf(listaequipamentoadicionado1.getValueAt(i, 2).toString()));
+//                        new EquipamentofaltaJpaController().edit(of);
+//                    } catch (PreexistingEntityException ex) {
+//                        Logger.getLogger(CadastrarMestre.class.getName()).log(Level.SEVERE, null, ex);
+//                    } catch (Exception ex) {
+//                        Logger.getLogger(CadastrarMestre.class.getName()).log(Level.SEVERE, null, ex);
+//                    }
+//                  
+//                }
+//
+//            }
+//        
+//        }
+         private void limparcampos(){
+             naoAprendiz.setSelected(true);
+             naoContrato.setSelected(true);
+             naoCasa.setSelected(true);
+             naoEnergia.setSelected(true);
+             naoFaltaEquipamento.setSelected(true);
+             naoFormacaoTecnica.setSelected(true);
+             naoINEFP1.setSelected(true);
+             naoReceberAprendiz.setSelected(true);
+             combocurso.setSelectedIndex(0);
+             txtAprendizHomen.setText(" ");
+             txtAprendizMulher.setText(" ");
+             txtContacto.setText(" ");
+             txtCursoINEFP1.setText(" ");
+             txtEntidadepromotora.setText(" ");
+             txtNacionalidade.setText(" ");
+             txtNrAprendizes.setText(" ");
+             txtPrincipaisprodutos.setText(" ");
+             txtRegaliasTrabalhador.setText(" ");
+             txtSalarioMedio.setText(" ");
+             txtdescricaooficina.setText(" ");
+             txtequipamentos.setText("");
+             txtequipamentosfalta.setText("");
+             txtEspecifiqueproducao.setText("");
+             txtidade.setText(" ");
+             txtinvestimento.setText(" ");
+             txtoutro.setText(" ");
+             txtnomemestre.setText(" ");
+             txtnumerosocios.setText(" ");
+             txtoutrashabilidades.setText(" ");
+             txtrendimentoOficina.setText(" ");
+             ComboLocalidade.setSelectedIndex(1);
+             comboAnosExperiencia.setSelectedIndex(1);
+             comboDistrito.setSelectedIndex(1);
+             comboMercado.setSelectedIndex(1);
+             comboNivelHabilitacao.setSelectedIndex(1);
+             comboaonosoficina.setSelectedIndex(1);
+             comboinvestimento.setSelectedIndex(1);
+             combonivelprofissional.setSelectedIndex(1);
+             comboproducao.setSelectedIndex(1);
+             combotrabalhador.setSelectedIndex(1);
+             
+             
+         
+         
+         }
+         
+          private void verificarcampos(){
+           if(txtnomemestre.getText().trim().equals("")){
+              txtnomemestre.requestFocus();
+              JOptionPane.showMessageDialog(null,"Campo Nome e obrigatorio", "Aviso", JOptionPane.WARNING_MESSAGE);
+              return;
+           }
+//              if(!masculino.isSelected()||!femenino.isSelected()){
+//             // txtnome.requestFocus();
+//              JOptionPane.showMessageDialog(null,"Campo Sexo e obrigatorio", "Aviso", JOptionPane.WARNING_MESSAGE);
+//              return;
+//           }
+           
+           
+            if(txtidade.getText().trim().equals("")){
+              txtidade.requestFocus();
+              JOptionPane.showMessageDialog(null,"Campo Idade e obrigatorio", "Aviso", JOptionPane.WARNING_MESSAGE);
+              return;
+           } 
+            if(txtContacto.getText().trim().equals("")){
+              txtContacto.requestFocus();
+              JOptionPane.showMessageDialog(null,"Campo Contacto e obrigatorio", "Aviso", JOptionPane.WARNING_MESSAGE);
+              return;
+           } 
+            
+             if(txtrendimentoOficina.getText().trim().equals("")){
+              txtrendimentoOficina.requestFocus();
+              JOptionPane.showMessageDialog(null,"Campo Rendimento da oficina e obrigatorio", "Aviso", JOptionPane.WARNING_MESSAGE);
+              return;
+           } 
+            
+            
+              if(txtPrincipaisprodutos.getText().trim().equals("")){
+              txtPrincipaisprodutos.requestFocus();
+              JOptionPane.showMessageDialog(null,"Campo Principais Produtos  e obrigatorio", "Aviso", JOptionPane.WARNING_MESSAGE);
+              return;
+           }
+              
+               if(txtequipamentos.getText().trim().equals("")){
+              txtequipamentos.requestFocus();
+              JOptionPane.showMessageDialog(null,"Campo Equipamentos  e obrigatorio", "Aviso", JOptionPane.WARNING_MESSAGE);
+              return;
+           }
+             
+             cadastrarMestre();
+//             if(simFaltaEquipamento.isSelected()){
+//                cadastrarequipamentosfalta();
+//             }
+             JOptionPane.showMessageDialog(null,"Modificado com sucesso");
+             limparcampos();
+             dispose();
+           
+       }
+          private void prencherCampos(){
+
+             txtnomemestre.setText(mestre.getNome());
+             txtNacionalidade.setText(mestre.getNacionalidade());
+              txtidade.setText(String.valueOf(mestre.getIdade()));
+             combocurso.setSelectedItem(mestre.getIdcurso().getCurso());
+             txtContacto.setText(String.valueOf(mestre.getContacto()));
+             txtPrincipaisprodutos.setText(mestre.getProducao());
+             txtoutrashabilidades.setText(mestre.getOutrahabilidade());
+             comboNivelHabilitacao.setSelectedItem(mestre.getIdnivelhabilitacao());
+           //  JOptionPane.showMessageDialog(null, mestre.getIdnivelhabilitacao().getNivelhabilitacao());
+             comboDistrito.setSelectedItem(mestre.getIdlocalidade().getIdposto().getIddistrito());
+             ComboLocalidade.setSelectedItem(mestre.getIdlocalidade());
+             if (mestre.getSexo()==true) 
+                     masculino.setSelected(true);
+                     
+                 else 
+                 
+                     femenino.setSelected(true);
+             
+            
+             if(mestre.getDiplomainefp()==true){
+                 simINEFP1.setSelected(true);
+                 txtCursoINEFP1.setEnabled(true);
+                 txtCursoINEFP1.setText(mestre.getCurso());}
+             else{
+                naoINEFP1.setSelected(true);
+                 txtCursoINEFP1.setEnabled(false);
+             }
+             if(mestre.getFormacaotecnica()==true){
+                 simFormacaoTecnica.setSelected(true);
+                 txtEntidadepromotora.setEnabled(true);
+                 txtEntidadepromotora.setText(mestre.getEntidadeformadora());
+             }
+             else{
+                 naoFormacaoTecnica.setSelected(true);
+                 txtEntidadepromotora.setEnabled(false);
+             }
+             
+             
+             if(mestre.getDiplomaprof()==true){
+                 simTecnProf1.setSelected(true);
+                 combonivelprofissional.setEnabled(true);
+                 combonivelprofissional.setSelectedItem(mestre.getIdnivelprof());
+             }
+             else{
+                naoTecnProf1.setSelected(true);
+                 combonivelprofissional.setEnabled(true);
+                 combonivelprofissional.setSelectedItem(0);
+             }
+             
+             oficinamestre=new OficinamestreJpaController().findOficinamestre(mestre.getIdmestre());
+             txtoutro.setText(oficinamestre.getProdutos());
+             if(oficinamestre.getSocios().compareToIgnoreCase("Sim")==0){
+                simSocios.setSelected(true);
+                txtnumerosocios.setEnabled(true);
+                txtnumerosocios.setText(String.valueOf(oficinamestre.getNrsocios()));
+             
+             }else
+             {
+                naoSocio.setSelected(true);
+                txtnumerosocios.setEnabled(false);
+//                txtnumerosocios.setText(String.valueOf(oficinamestre.getNrsocios()));
+             }
+             comboAnosExperiencia.setSelectedItem(oficinamestre.getIdanosexperiencia());
+             comboaonosoficina.setSelectedItem(oficinamestre.getIdanosoficina());
+             if(oficinamestre.getTemtrabalhador()==true){
+                 simTrabalhador.setSelected(true);
+                 txtSalarioMedio.setEnabled(true);
+                 combotrabalhador.setSelectedItem(oficinamestre.getNrtrabalhador());
+                 txtRegaliasTrabalhador.setEnabled(true);
+                 txtRegaliasTrabalhador.setText(oficinamestre.getOutrasregalias());
+                 txtSalarioMedio.setText(String.valueOf(oficinamestre.getSalariomedio()));
+                
+                 if(oficinamestre.getTrabalhadorcontrato()==true)
+                    SimContrato.setEnabled(true);
+                 else
+                     naoContrato.setEnabled(true);
+             }
+             else{
+                 naoTrabalhador.setSelected(false);
+                  simTrabalhador.setSelected(false);
+                 txtSalarioMedio.setEnabled(false);
+                 
+                 naoContrato.setEnabled(false);
+                 SimContrato.setEnabled(false);
+                 txtRegaliasTrabalhador.setEnabled(false);
+             
+             }
+             if(oficinamestre.getFormalizada().compareToIgnoreCase("Sim")==0)
+                 simFormalizada.setSelected(true);
+             else
+                 if(oficinamestre.getFormalizada().compareToIgnoreCase("Nao")==0)
+                 naoformalizada.setSelected(true);
+             comboMercado.setSelectedItem(oficinamestre.getIdmercado());
+             txtrendimentoOficina.setText(String.valueOf(oficinamestre.getRendimentomedio()));
+             if(oficinamestre.getEnergia()==true)
+                 simEnergia.setSelected(true);
+             else
+                 naoEnergia.setSelected(false);
+             if(oficinamestre.getDisponibilidade()==true){
+               simAprendiz.setSelected(true);
+               txtAprendizHomen.setEnabled(true);
+               txtAprendizMulher.setEnabled(true);
+               txtAprendizHomen.setText(String.valueOf(oficinamestre.getAhomen()));
+               txtAprendizMulher.setText(String.valueOf(oficinamestre.getAmulher()));
+              
+             }
+              else
+             {
+               naoAprendiz.setSelected(true);
+               txtAprendizHomen.setEnabled(false);
+               txtAprendizMulher.setEnabled(false);
+              
+             }
+             
+             if(oficinamestre.getRecebeuaprendizes()==true){
+               simReceberAprendiz.setSelected(true);
+               naoReceberAprendiz.setSelected(false);
+               txtNrAprendizes.setEnabled(true);
+               txtNrAprendizes.setText(oficinamestre.getQuantidade());
+              
+              
+             }
+              else
+             {
+               simReceberAprendiz.setSelected(false);
+               naoReceberAprendiz.setSelected(true);
+               txtNrAprendizes.setEnabled(false);
+             }
+             comboinvestimento.setSelectedItem(oficinamestre.getIdanoinvestimentosequipamentos());
+             txtinvestimento.setText(oficinamestre.getInvestimentos());
+             txtdescricaooficina.setText(oficinamestre.getDescricaooficina());
+             comboproducao.setSelectedItem(oficinamestre.getIdproducao().getProducao());
+             txtEspecifiqueproducao.setText(String.valueOf(oficinamestre.getQtdprod()));
+             txtequipamentos.setText(oficinamestre.getEquipamentos());
+             txtequipamentosfalta.setText(oficinamestre.getFaltaequipamento());
+             combotrabalhador.setSelectedItem(oficinamestre.getNrtrabalhador().getNumerotrab());
+            
+          
+          }
+          
+//            public void listarequipamentosMestre(int m) {
+//                     
+//           
+//            List<Oficinaequipamento>  equip = new OficinaequipamentoJpaController().getequipamentosmestre(m);
+//           
+//                DefaultTableModel tbm=(DefaultTableModel) listaequipamentoadicionado.getModel();
+//                
+//                for (int i = tbm.getRowCount()-1; i >= 0; i--) {
+//                    tbm.removeRow(i);
+//                }
+//                int i=0;
+//                for(Oficinaequipamento e : equip){
+//                    tbm.addRow(new String[1]);
+//                    
+//                    listaequipamentoadicionado.setValueAt(e.getOficinamestre().getIdmestre(), i, 0);
+//                    listaequipamentoadicionado.setValueAt(e.getEquipamento().getEquipamento(), i, 1);
+//                    listaequipamentoadicionado.setValueAt(e.getQuantidade(), i, 2);
+//                    
+//                    i++;
+//        }
+//       
+//    }  
+//            
+//        public void listarequipamentosMestrefalta(int m) {
+//                     
+//           
+//            List<Equipamentofalta>  equip = new EquipamentofaltaJpaController().getequipamentosmestre(m);
+//           
+//                DefaultTableModel tbm=(DefaultTableModel) listaequipamentoadicionado1.getModel();
+//                
+//                for (int i = tbm.getRowCount()-1; i >= 0; i--) {
+//                    tbm.removeRow(i);
+//                }
+//                int i=0;
+//                for(Equipamentofalta e : equip){
+//                    tbm.addRow(new String[1]);
+//                    
+//                    listaequipamentoadicionado1.setValueAt(e.getOficinamestre().getIdmestre(), i, 0);
+//                    listaequipamentoadicionado1.setValueAt(e.getEquipamento().getEquipamento(), i, 1);
+//                    listaequipamentoadicionado1.setValueAt(e.getQuantidade(), i, 2);
+//                    
+//                    i++;
+//        }
+//       
+//    }       
+            
+            
+}
